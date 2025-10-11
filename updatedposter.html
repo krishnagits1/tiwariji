@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>देवी-देवता पोस्टर — आचार्य विक्रम तिवारी जी</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{font-family:'Noto Sans Devanagari',sans-serif;background:#fff7ed;margin:0;color:#4b342f;padding:18px}
+header{background:linear-gradient(90deg,#d97706,#b45309);color:#fff;padding:14px;border-radius:10px;text-align:center}
+.container{max-width:1100px;margin:18px auto}
+.card{background:#fff;padding:14px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.08)}
+label{font-weight:600;display:block;margin-top:10px}
+input,textarea{width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid #ccc}
+.deity-gallery,.bg-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-top:10px}
+.deity-card,.bg-card{cursor:pointer;border-radius:10px;overflow:hidden;border:3px solid transparent;transition:.18s;text-align:center}
+.deity-card img,.bg-card img{width:100%;height:90px;object-fit:cover;border-radius:8px}
+.deity-card.selected,.bg-card.selected{border-color:#d97706;box-shadow:0 4px 10px rgba(217,119,6,0.3)}
+.poster-frame{width:480px;position:relative;background-size:cover;background-position:center;background-repeat:no-repeat;border:10px solid #d97706;padding:18px;border-radius:10px;margin:auto}
+.poster-inner{background-color:rgba(255,255,255,0.9);border-radius:10px;padding:16px}
+.poster-inner h2{color:#b45309;text-align:center;margin:10px 0 6px}
+.poster-inner img.main{display:block;margin:0 auto;border-radius:10px;width:160px;height:160px;object-fit:cover;border:4px solid #fbbf24}
+.poster-inner p{background:#fff4e0;padding:10px;border-radius:8px;margin-top:10px}
+.pandit-footer{margin-top:10px;text-align:center;border-top:2px solid #fbbf24;padding-top:8px;display:flex;align-items:center;justify-content:center;gap:10px}
+.pandit-footer img{width:50px;height:50px;border-radius:50%;border:3px solid #fbbf24;object-fit:cover}
+.actions{display:flex;flex-direction:column;gap:8px;margin-top:20px}
+.actions button{background:#b45309;color:#fff;padding:10px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:700}
+</style>
+</head>
+<body>
+<header><h1>🪔 देवी-देवता पोस्टर बनाएँ — आचार्य विक्रम तिवारी जी</h1></header>
+
+<div class="container">
+  <div class="card">
+    <label>त्योहार / अवसर का नाम</label>
+    <input id="festivalName" placeholder="जैसे: दीपावली">
+    <label>शुभकामना संदेश / श्लोक</label>
+    <textarea id="message" rows="3" placeholder="यहाँ शुभकामना या श्लोक लिखें..."></textarea>
+
+    <h3>🕉 देवी / देवता चुनें</h3>
+    <div id="gallery" class="deity-gallery"></div>
+
+    <h3>🌸 त्योहार का बैकग्राउंड चुनें</h3>
+    <div id="bgGallery" class="bg-gallery"></div>
+
+    <label>📸 पंडित जी की फोटो अपलोड करें</label>
+    <input type="file" id="panditUpload" accept="image/*">
+
+    <div style="text-align:center;margin-top:20px">
+      <div class="poster-frame" id="posterFrame">
+        <div class="poster-inner" id="posterInner">
+          <h2 id="posterTitle">🎉 आपका पोस्टर यहाँ दिखेगा</h2>
+          <img id="posterImage" class="main" src="" style="display:none">
+          <p id="posterMsg" style="display:none"></p>
+          <div class="pandit-footer">
+            <img id="panditPhoto" src="https://i.ibb.co/f16Nx9g/pandit-vikram.jpg" alt="पंडित जी">
+            <div>
+              <b>आचार्य पंडित विक्रम तिवारी जी</b><br>
+              📞 9415928664 | 7081515744<br>
+              <span style="font-size:13px;color:#6b4f4f;">गोरखपुर (उत्तर प्रदेश)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="genBtn">पूर्वावलोकन बनाएँ</button>
+        <button id="downloadBtn">📥 पोस्टर डाउनलोड</button>
+        <button id="shareBtn">📱 WhatsApp / मोबाइल शेयर</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const deities=[
+ {name:"लक्ष्मी माता",src:"lakshmi.webp"},
+ {name:"गणेश जी",src:"images/ganesh.webp"},
+ {name:"शिव जी",src:"images/bhole.webp"},
+ {name:"सरस्वती माता",src:"images/saraswati.webp"},
+ {name:"राम जी",src:"images/sriram.webp"},
+ {name:"कृष्ण जी",src:"images/barlkrishna.webp"},
+ {name:"शिव पार्वती जी",src:"images/shivparwati.webp"},
+ {name:"सभी देवी देवता एक साथ ",src:"images/sabhidevdewat.webp"},
+ {name:"हनुमान जी",src:"images/hanumanji.webp"},
+];
+const backgrounds=[
+ {name:"दीपावली",src:"DIPAWALI.webp"},
+ {name:"होली",src:"https://i.ibb.co/Yk6ng2K/holi-bg.jpg"},
+ {name:"नवरात्रि",src:"https://i.ibb.co/vxHhmQT/navratri-bg.jpg"},
+ {name:"जन्माष्टमी",src:"https://i.ibb.co/61fzDPF/janmashtami-bg.jpg"},
+ {name:"जन्माष्टमी",src:"https://i.ibb.co/61fzDPF/janmashtami-bg.jpg"}
+];
+
+let selectedDeity=null,selectedBg=null;
+
+function renderGallery(list,container,onSelect){
+ container.innerHTML="";
+ list.forEach(d=>{
+  const c=document.createElement("div");
+  c.className="deity-card";
+  c.innerHTML=`<img src="${d.src}" alt="${d.name}"><div>${d.name}</div>`;
+  c.onclick=()=>{container.querySelectorAll(".deity-card").forEach(x=>x.classList.remove("selected"));
+    c.classList.add("selected");onSelect(d);}
+  container.appendChild(c);
+ });
+}
+
+renderGallery(deities,document.getElementById("gallery"),d=>{selectedDeity=d;updatePoster();});
+renderGallery(backgrounds,document.getElementById("bgGallery"),d=>{selectedBg=d;updatePoster();});
+
+document.getElementById("panditUpload").addEventListener("change",e=>{
+ const f=e.target.files[0];
+ if(!f)return;
+ const r=new FileReader();
+ r.onload=ev=>{document.getElementById("panditPhoto").src=ev.target.result;}
+ r.readAsDataURL(f);
+});
+
+function updatePoster(){
+ const title=document.getElementById("festivalName").value||"त्योहार विशेष";
+ const msg=document.getElementById("message").value;
+ document.getElementById("posterTitle").textContent=title;
+ const posterImage=document.getElementById("posterImage");
+ if(selectedDeity){posterImage.src=selectedDeity.src;posterImage.style.display="block";}
+ else posterImage.style.display="none";
+ document.getElementById("posterMsg").textContent=msg;
+ document.getElementById("posterMsg").style.display=msg?"block":"none";
+ const frame=document.getElementById("posterFrame");
+ frame.style.backgroundImage=selectedBg?`url(${selectedBg.src})`:"none";
+}
+
+document.getElementById("genBtn").onclick=updatePoster;
+
+document.getElementById("downloadBtn").onclick=async()=>{
+ const el=document.getElementById("posterFrame");
+ const canvas=await html2canvas(el,{scale:2});
+ const a=document.createElement("a");
+ a.download="poster.png";
+ a.href=canvas.toDataURL("image/png");
+ a.click();
+};
+
+document.getElementById("shareBtn").onclick=async()=>{
+ const el=document.getElementById("posterFrame");
+ const canvas=await html2canvas(el,{scale:2});
+ canvas.toBlob(async blob=>{
+  const file=new File([blob],"poster.png",{type:"image/png"});
+  if(navigator.canShare&&navigator.canShare({files:[file]})){
+   await navigator.share({files:[file],title:"पोस्टर",text:"🙏 आचार्य विक्रम तिवारी जी द्वारा निर्मित पोस्टर"});
+  }else{
+   alert("⚠️ यह फीचर मोबाइल ब्राउज़र में ही बेहतर काम करेगा।");
+  }
+ });
+};
+</script>
+</body>
+</html>
