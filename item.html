@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>आचार्य पंडित जी — पूजा और अनुष्ठान (PDF उन्नत)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    :root{
+      --bg:#fff6eb;
+      --accent:#d97706;
+      --accent-dark:#b45309;
+      --muted:#4b342f;
+      --card:#fff;
+      --gold:#fbbf24;
+    }
+    body{font-family:'Noto Sans Devanagari',system-ui,Arial;background:var(--bg);color:var(--muted);margin:0;padding:18px}
+    .container{max-width:1100px;margin:0 auto}
+    header{background:linear-gradient(90deg,var(--accent-dark),var(--accent));color:white;padding:18px;border-radius:12px;text-align:center;box-shadow:0 6px 14px rgba(0,0,0,0.2);position:relative}
+    h1{margin:0;font-size:24px;letter-spacing:0.5px}
+    .tagline{font-size:13px;margin-top:6px;font-style:italic;}
+    .header-btn{
+      margin-top:10px;
+      display:inline-block;
+      background:white;
+      color:var(--accent-dark);
+      font-weight:600;
+      padding:6px 14px;
+      border-radius:20px;
+      text-decoration:none;
+      box-shadow:0 3px 6px rgba(0,0,0,0.2);
+      transition:all 0.3s;
+    }
+    .header-btn:hover{background:var(--gold);color:#4b342f;}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:16px;margin-top:16px}
+    .card{background:var(--card);padding:14px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.1)}
+    label{display:block;margin-top:8px;font-weight:600}
+    input,textarea{width:100%;padding:8px;border-radius:8px;border:1px solid #ddd;margin-top:6px}
+    input[readonly]{background:#fef6e4;color:#444;}
+    button.primary{background:var(--accent-dark);color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;box-shadow:0 3px 6px rgba(0,0,0,0.15)}
+    .previewFrame{width:794px;background:white;padding:24px;border-radius:10px;border:10px solid var(--accent);box-shadow:0 8px 30px rgba(0,0,0,0.2)}
+    .frameHeader{display:flex;align-items:center;gap:14px;border-bottom:3px solid var(--accent-dark);padding-bottom:12px;margin-bottom:12px}
+    .deityImg{width:96px;height:96px;object-fit:cover;border-radius:8px;border:3px solid var(--gold);box-shadow:0 4px 8px rgba(0,0,0,0.2)}
+    .meta{flex:1}
+    .titleSmall{font-size:12px;color:#b55454}
+    .ritualTitle{font-size:20px;margin:6px 0;color:var(--accent-dark)}
+    .mantra{background:#fff4e0;padding:10px;border-radius:8px;margin-top:8px;border-left:4px solid var(--accent-dark);white-space:pre-wrap;font-weight:500}
+    .itemsList{margin-top:10px}
+    .itemsList li{margin-bottom:6px}
+    .footerNote{margin-top:18px;font-size:12px;color:#4b342f;border-top:3px solid var(--accent-dark);padding-top:10px;background:#fff4e0;border-radius:6px;padding:10px;box-shadow:inset 0 0 6px rgba(0,0,0,0.1)}
+    .controls{display:flex;gap:8px;margin-top:12px}
+    footer{margin-top:30px;text-align:center;color:#7c3a00;font-weight:600;letter-spacing:0.3px}
+    @media(max-width:980px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>आचार्य पंडित विक्रम तिवारी जी गोरखपुर वाले — पूजा/अनुष्ठान</h1>
+      <div class="tagline">“हर आस्था का आरंभ वेदों से, हर पूजा की पूर्णता मंत्रों से।”<br>(Acharya Pandit Vikram Tiwari Ji – Gorakhpur)</div>
+      
+    </header>
+
+    <div class="grid">
+      <section>
+        <div class="card">
+          <h3>PDF का पूर्वावलोकन और कंटेंट फिल करें</h3>
+
+          <!-- readonly fields -->
+          <label>पंडित जी का नाम</label>
+          <input id="panditName" value="आचार्य पंडित विक्रम तिवारी जी" readonly>
+
+          <label>पता</label>
+          <input id="panditAddress" value="पटना, बड़हलगंज, गोरखपुर, उत्तर प्रदेश" readonly>
+
+          <label>मोबाइल</label>
+          <input id="panditPhone" value="+91 9415928664, 7081515744" readonly>
+
+          <label>अनुष्ठान / पूजा का नाम</label>
+          <input id="ritualName" value="गृह प्रवेश पूजा">
+
+          <label>संक्षेप विवरण</label>
+          <textarea id="ritualDesc" rows="2">नए घर में समृद्धि, सुख-शान्ति और शुभता के लिए किया जाने वाला अनुष्ठान।</textarea>
+
+          <label>देवी/देवता का नाम</label>
+          <input id="deityName" value="लक्ष्मी माता">
+
+          <!-- हटाया गया: देवी/देवता फोटो URL -->
+          
+          <label>मंत्र / श्लोक</label>
+          <textarea id="mantraText" rows="4">ॐ श्री महालक्ष्म्यै नमः
+हर कार्य में समृद्धि दे माता।</textarea>
+
+          <label>सामग्री (एक प्रति पंक्ति)</label>
+          <textarea id="itemsText" rows="4">गंगाजल
+दूध
+चावल
+दीपक
+नारियल
+हल्दी</textarea>
+
+          <div class="controls">
+            <button class="primary" onclick="renderPreview()">पूर्वावलोकन अपडेट करें</button>
+            <button class="primary" onclick="downloadPreviewPDF()">PDF डाउनलोड करें</button>
+          </div>
+
+          <label style="margin-top:10px">देवता की फोटो अपलोड करें</label>
+          <input type="file" id="deityFile" accept="image/*" onchange="handleFileSelect(event)">
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h4>PDF पूर्वावलोकन (भगवा फ्रेम)</h4>
+          <div id="previewContainer" style="overflow:auto;padding:8px">
+            <div id="pdfPreview" class="previewFrame"></div>
+          </div>
+        </div>
+      </aside>
+      <a href="index.html" class="header-btn">🔗 होम पेज पर जाए</a>
+    </div>
+
+    <footer>© आचार्य पंडित विक्रम तिवारी जी गोरखपुर — सभी धार्मिक अनुष्ठान, हवन, विवाह, गृह प्रवेश हेतु संपर्क करें।</footer>
+  </div>
+
+  <script>
+    const defaultDeity = 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=400&auto=format&fit=crop';
+    let uploadedImageDataURL = null;
+
+    function handleFileSelect(e){
+      const file = e.target.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => { uploadedImageDataURL = ev.target.result; renderPreview(); }
+      reader.readAsDataURL(file);
+    }
+
+    function renderPreview(){
+      const name = 'आचार्य पंडित विक्रम तिवारी जी';
+      const address = 'पटना, बड़हलगंज, गोरखपुर, उत्तर प्रदेश';
+      const phone = '+91 9415928664, 7081515744';
+      const ritual = document.getElementById('ritualName').value;
+      const desc = document.getElementById('ritualDesc').value;
+      const deity = document.getElementById('deityName').value;
+      const mantra = document.getElementById('mantraText').value;
+      const items = document.getElementById('itemsText').value.split('\n').map(s=>s.trim()).filter(Boolean);
+      const deityURL = uploadedImageDataURL || defaultDeity;
+
+      const preview = document.getElementById('pdfPreview');
+      preview.innerHTML = '';
+
+      const header = document.createElement('div'); header.className='frameHeader';
+      const img = document.createElement('img'); img.className='deityImg'; img.src = deityURL;
+      header.appendChild(img);
+      const meta = document.createElement('div'); meta.className='meta';
+      meta.innerHTML = `<div class='titleSmall'>आचार्य पंडित</div>
+        <div style='font-weight:700;font-size:16px;margin-top:4px;color:var(--accent-dark)'>${name}</div>
+        <div style='font-size:13px;margin-top:6px'>${address} | ${phone}</div>`;
+      header.appendChild(meta);
+      preview.appendChild(header);
+
+      const ritualTitle = document.createElement('div'); ritualTitle.className='ritualTitle'; ritualTitle.textContent = ritual;
+      preview.appendChild(ritualTitle);
+      const descEl = document.createElement('div'); descEl.style.fontSize='13px'; descEl.textContent = desc; preview.appendChild(descEl);
+      const deityLine = document.createElement('div'); deityLine.style.marginTop='8px'; deityLine.innerHTML = `<strong>देवता:</strong> ${deity}`; preview.appendChild(deityLine);
+
+      const mantraBox = document.createElement('div'); mantraBox.className='mantra'; mantraBox.textContent = mantra; preview.appendChild(mantraBox);
+
+      const itemsHeading = document.createElement('div'); itemsHeading.style.marginTop='12px'; itemsHeading.innerHTML = '<strong>आवश्यक सामग्री:</strong>';
+      preview.appendChild(itemsHeading);
+      const ul = document.createElement('ul'); ul.className='itemsList'; items.forEach(i=>{ const li=document.createElement('li'); li.textContent = '• '+i; ul.appendChild(li); }); preview.appendChild(ul);
+
+      const footer = document.createElement('div'); footer.className='footerNote';
+      footer.innerHTML = `<strong>${name}</strong><br>${address}<br>📞 ${phone}<br><em>संपर्क करें सभी प्रकार के अनुष्ठान, हवन, गृह प्रवेश, विवाह, मुंडन, नामकरण आदि हेतु।</em>`;
+      preview.appendChild(footer);
+    }
+
+    async function downloadPreviewPDF(){
+      const previewEl = document.getElementById('pdfPreview');
+      const {jsPDF} = window.jspdf;
+      const canvas = await html2canvas(previewEl, {scale:2, useCORS:true});
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF({unit:'px',format:'a4'});
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const ratio = Math.min(pageWidth / canvas.width, pageHeight / canvas.height);
+      const renderWidth = canvas.width * ratio;
+      const renderHeight = canvas.height * ratio;
+      const x = (pageWidth - renderWidth)/2;
+      pdf.addImage(imgData,'PNG',x,20,renderWidth,renderHeight);
+      pdf.save(`${document.getElementById('ritualName').value||'anusthan'}.pdf`);
+    }
+
+    window.addEventListener('load',renderPreview);
+  </script>
+</body>
+</html>
