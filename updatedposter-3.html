@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>🪔 देवी-देवता पोस्टर — पंडित विक्रम तिवारी जी</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+:root{
+  --saffron:#FF6B00;--deep:#C04400;--gold:#FFD700;--gold2:#FFF0A0;
+  --maroon:#7B1C1C;--cream:#FDF6E3;--dark:#1A0A00;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#1A0A00;
+  color:var(--cream);
+  font-family:'Noto Serif Devanagari','Tiro Devanagari Hindi',serif;
+  min-height:100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% 0%,rgba(255,107,0,0.13) 0%,transparent 65%),
+    radial-gradient(ellipse 50% 40% at 90% 100%,rgba(123,28,28,0.1) 0%,transparent 55%);
+}
+
+/* NAV */
+nav{
+  background:rgba(26,10,0,0.96);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,215,0,0.18);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.65rem 1.5rem;position:sticky;top:0;z-index:200;flex-wrap:wrap;gap:0.5rem;
+}
+.nav-brand{
+  font-size:0.95rem;font-weight:700;
+  background:linear-gradient(135deg,var(--gold2),var(--gold),var(--saffron));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+nav a{color:rgba(253,246,227,0.7);font-size:0.78rem;text-decoration:none;padding:0.28rem 0.7rem;border-radius:18px;transition:all 0.2s;}
+nav a:hover{background:rgba(255,107,0,0.18);color:var(--gold2);}
+
+/* HEADER */
+header{text-align:center;padding:2rem 1rem 1.2rem;border-bottom:1px solid rgba(255,215,0,0.1);}
+.h-om{
+  font-size:3.2rem;
+  background:linear-gradient(135deg,var(--gold),var(--saffron),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 14px rgba(255,215,0,0.4));
+  animation:pglow 3s ease-in-out infinite;display:block;
+}
+@keyframes pglow{0%,100%{filter:drop-shadow(0 0 10px rgba(255,215,0,.35))}50%{filter:drop-shadow(0 0 26px rgba(255,165,0,.7))}}
+header h1{font-size:clamp(1.15rem,3vw,1.8rem);font-weight:700;margin:.4rem 0 .2rem;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+header p{font-size:.82rem;color:rgba(253,246,227,.55);}
+
+/* LAYOUT */
+.wrap{display:grid;grid-template-columns:360px 1fr;gap:1.4rem;max-width:1280px;margin:1.4rem auto;padding:0 1.1rem 3rem;}
+@media(max-width:860px){.wrap{grid-template-columns:1fr;}}
+
+/* FORM PANEL */
+.fpanel{
+  background:linear-gradient(160deg,rgba(255,107,0,0.07),rgba(26,10,0,0.88));
+  border:1px solid rgba(255,215,0,0.17);border-radius:16px;padding:1.4rem;
+  height:fit-content;position:sticky;top:68px;
+}
+.fpanel h2{font-size:1rem;color:var(--gold);margin-bottom:1.1rem;text-align:center;
+  border-bottom:1px solid rgba(255,215,0,0.14);padding-bottom:.6rem;}
+.fg{margin-bottom:.9rem;}
+.fg label{display:block;font-size:.78rem;color:rgba(253,246,227,.68);margin-bottom:.3rem;}
+.fg input,.fg textarea,.fg select{
+  width:100%;background:rgba(255,255,255,0.055);
+  border:1px solid rgba(255,215,0,0.18);border-radius:8px;
+  color:var(--cream);font-family:inherit;font-size:.85rem;
+  padding:.55rem .75rem;outline:none;resize:vertical;
+  transition:border-color .2s,background .2s;
+}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--saffron);background:rgba(255,107,0,0.07);}
+.fg select option{background:#2D1000;color:var(--cream);}
+.fg textarea{min-height:60px;}
+
+.upload-box{
+  border:2px dashed rgba(255,215,0,0.28);border-radius:10px;
+  padding:1rem;text-align:center;cursor:pointer;
+  transition:border-color .3s,background .3s;background:rgba(255,215,0,0.025);
+  position:relative;overflow:hidden;
+}
+.upload-box:hover{border-color:var(--saffron);background:rgba(255,107,0,0.06);}
+.upload-box input{display:none;}
+.upload-box .ub-icon{font-size:1.8rem;display:block;margin-bottom:.3rem;}
+.upload-box p{font-size:.74rem;color:rgba(253,246,227,.5);}
+.ub-preview{
+  width:70px;height:70px;border-radius:50%;object-fit:cover;
+  border:3px solid var(--gold);display:none;margin:.5rem auto 0;
+}
+
+.btn{
+  display:inline-flex;align-items:center;gap:.45rem;justify-content:center;
+  font-family:inherit;font-size:.88rem;font-weight:700;
+  padding:.7rem 1.2rem;border-radius:50px;border:none;cursor:pointer;
+  transition:transform .2s,box-shadow .2s;width:100%;margin-top:.4rem;
+}
+.btn-primary{background:linear-gradient(135deg,var(--saffron),var(--deep));color:#fff;box-shadow:0 4px 18px rgba(255,107,0,.3);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(255,107,0,.5);}
+.btn-gold{background:linear-gradient(135deg,#c9a227,#e8c840,#c9a227);color:#1A0A00;box-shadow:0 4px 16px rgba(255,215,0,.25);}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,215,0,.45);}
+.btn-green{background:linear-gradient(135deg,#128C7E,#25D366);color:#fff;box-shadow:0 4px 16px rgba(37,211,102,.3);}
+.btn-green:hover{transform:translateY(-2px);}
+.btn-out{background:transparent;color:var(--gold);border:1px solid rgba(255,215,0,.35);margin-top:.35rem;}
+.btn-out:hover{background:rgba(255,215,0,.07);border-color:var(--gold);}
+
+/* RIGHT */
+.rpanel{}
+
+/* TEMPLATE PICKER */
+.tsec{margin-bottom:1.3rem;}
+.tsec h2{font-size:.95rem;color:var(--gold);margin-bottom:.9rem;display:flex;align-items:center;gap:.4rem;}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:.6rem;}
+.tc{
+  background:rgba(255,107,0,0.055);border:2px solid rgba(255,215,0,.14);
+  border-radius:10px;padding:.6rem .4rem;text-align:center;cursor:pointer;
+  transition:all .25s;
+}
+.tc:hover{border-color:rgba(255,215,0,.45);background:rgba(255,107,0,.1);}
+.tc.active{border-color:var(--gold);background:rgba(255,215,0,.08);box-shadow:0 0 0 2px rgba(255,215,0,.25);}
+.tc-thumb{width:100%;height:62px;border-radius:6px;margin-bottom:.35rem;display:flex;align-items:center;justify-content:center;font-size:1.7rem;}
+.tc-name{font-size:.68rem;color:rgba(253,246,227,.78);line-height:1.3;}
+
+/* PREVIEW WRAP */
+.pvwrap{background:rgba(0,0,0,0.28);border:1px solid rgba(255,215,0,0.1);border-radius:16px;padding:1.1rem;}
+.pvwrap h2{font-size:.95rem;color:var(--gold);margin-bottom:.9rem;display:flex;align-items:center;gap:.4rem;}
+.pv-scroll{overflow:auto;border-radius:8px;background:#111;}
+.pv-scale{transform-origin:top left;}
+
+/* ════════════════════════════════════════
+   POSTER BASE STYLES (shared)
+════════════════════════════════════════ */
+.poster-root{
+  width:600px;min-height:900px;
+  position:relative;overflow:hidden;
+  font-family:'Noto Serif Devanagari',serif;
+  display:flex;flex-direction:column;
+}
+/* shared deity section centering */
+.deity-row{display:flex;align-items:center;justify-content:center;padding:1rem 1.5rem .6rem;position:relative;z-index:1;}
+.deity-info{text-align:center;}
+
+/* ── Deity photo BOX (passport-size in decorative frame) ── */
+.deity-photo-box{
+  display:inline-flex;flex-direction:column;align-items:center;
+  position:relative;margin:0 auto;
+}
+.deity-photo-box .photo-frame{
+  width:160px;height:190px;
+  border-radius:12px;
+  overflow:hidden;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.deity-photo-box .photo-frame::before{
+  content:'';
+  position:absolute;inset:0;border-radius:12px;
+  border:3px solid rgba(255,215,0,.9);
+  z-index:2;pointer-events:none;
+}
+.deity-photo-box .photo-frame::after{
+  content:'';
+  position:absolute;inset:5px;border-radius:8px;
+  border:1px solid rgba(255,215,0,.35);
+  z-index:2;pointer-events:none;
+}
+.photo-circle{
+  width:160px;height:190px;
+  border-radius:10px;object-fit:cover;object-position:center top;
+  display:block;position:relative;z-index:1;flex-shrink:0;
+}
+.photo-placeholder{
+  width:160px;height:190px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:4.5rem;position:relative;z-index:1;flex-shrink:0;
+}
+/* corner ornaments */
+.deity-photo-box .fc{
+  position:absolute;width:18px;height:18px;
+  border-color:var(--gold);border-style:solid;z-index:3;
+}
+.deity-photo-box .fc-tl{top:-2px;left:-2px;border-width:3px 0 0 3px;border-radius:3px 0 0 0;}
+.deity-photo-box .fc-tr{top:-2px;right:-2px;border-width:3px 3px 0 0;border-radius:0 3px 0 0;}
+.deity-photo-box .fc-bl{bottom:-2px;left:-2px;border-width:0 0 3px 3px;border-radius:0 0 0 3px;}
+.deity-photo-box .fc-br{bottom:-2px;right:-2px;border-width:0 3px 3px 0;border-radius:0 0 3px 0;}
+/* Pandit ji small circle for footer */
+.pandit-circle{
+  width:72px;height:72px;border-radius:50%;
+  object-fit:cover;object-position:center top;
+  flex-shrink:0;display:block;
+}
+.pandit-placeholder{
+  width:72px;height:72px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;flex-shrink:0;
+}
+
+/* ── TEMPLATE 1 — Saffron Mandala ── */
+.pt1{background:linear-gradient(150deg,#5A0D00,#8B1A00,#C04400 60%,#8B1A00,#5A0D00);}
+.pt1 .bg1{position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 45%,rgba(255,215,0,.07) 0%,transparent 58%),
+  repeating-conic-gradient(rgba(255,215,0,.025) 0deg,transparent 9deg,rgba(255,215,0,.025) 18deg);
+  pointer-events:none;}
+.pt1 .border1{position:absolute;inset:10px;border:2.5px solid rgba(255,215,0,.7);border-radius:3px;pointer-events:none;}
+.pt1 .border2{position:absolute;inset:16px;border:1px solid rgba(255,215,0,.3);pointer-events:none;}
+.pt1 .c{position:absolute;width:28px;height:28px;border-color:var(--gold);border-style:solid;}
+.pt1 .ctl{top:8px;left:8px;border-width:3px 0 0 3px;}
+.pt1 .ctr{top:8px;right:8px;border-width:3px 3px 0 0;}
+.pt1 .cbl{bottom:8px;left:8px;border-width:0 0 3px 3px;}
+.pt1 .cbr{bottom:8px;right:8px;border-width:0 3px 3px 0;}
+.pt1 .topbar{background:linear-gradient(90deg,transparent,rgba(255,215,0,.18),transparent);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);padding:.45rem 1.8rem;text-align:center;margin:28px 20px 0;position:relative;z-index:1;}
+.pt1 .topbar .om{font-size:2.2rem;color:var(--gold);text-shadow:0 0 18px rgba(255,215,0,.7);display:block;line-height:1.1;}
+.pt1 .occasion{text-align:center;font-size:1.25rem;font-weight:700;color:#fff;margin:.55rem 1.5rem .1rem;text-shadow:0 2px 8px rgba(0,0,0,.7);position:relative;z-index:1;}
+.pt1 .shlok{text-align:center;font-size:.8rem;color:var(--gold2);font-style:italic;margin:.1rem 1.8rem .5rem;position:relative;z-index:1;line-height:1.5;}
+.pt1 .deity-row{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin:.5rem 1.5rem;position:relative;z-index:1;flex-wrap:wrap;}
+.pt1 .deity-info{text-align:center;}
+.pt1 .deity-name{font-size:.9rem;font-weight:700;color:var(--gold2);margin-top:.3rem;}
+.pt1 .deity-sub{font-size:.72rem;color:rgba(255,240,160,.7);}
+.pt1 .photo-circle{box-shadow:none;}
+.pt1 .photo-placeholder{background:rgba(255,107,0,.2);}
+.pt1 .photo-frame{box-shadow:0 0 28px rgba(255,215,0,.45),0 6px 24px rgba(0,0,0,.5);}
+.pt1 .deity-photo-box .fc{border-color:var(--gold);}
+.pt1 .msg-box{background:rgba(0,0,0,.32);border:1px solid rgba(255,215,0,.25);border-radius:6px;margin:.5rem 1.5rem;padding:.65rem 1rem;text-align:center;position:relative;z-index:1;flex:1;}
+.pt1 .msg-box p{color:var(--gold2);font-size:.82rem;line-height:1.65;font-style:italic;}
+.pt1 .footer{background:linear-gradient(90deg,rgba(123,28,28,.8),rgba(192,68,0,.75),rgba(123,28,28,.8));border-top:2px solid rgba(255,215,0,.5);margin:auto 20px 28px;border-radius:4px;padding:.55rem 1rem;position:relative;z-index:1;display:flex;align-items:center;gap:.85rem;}
+.pt1 .footer .pandit-circle{border:2.5px solid var(--gold);box-shadow:0 0 14px rgba(255,215,0,.4);}
+.pt1 .footer .pandit-placeholder{border:2.5px solid var(--gold);background:rgba(255,107,0,.22);box-shadow:0 0 12px rgba(255,215,0,.3);}
+.pt1 .footer-info{flex:1;}
+.pt1 .footer-info .fname{font-size:.82rem;font-weight:700;color:var(--gold);line-height:1.3;}
+.pt1 .footer-info .fdetail{font-size:.7rem;color:rgba(255,240,160,.8);line-height:1.5;}
+
+/* ── TEMPLATE 2 — Royal Purple ── */
+.pt2{background:linear-gradient(155deg,#0D0B30,#1E1468,#3A1080,#0D0B30);}
+.pt2 .bg1{position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(155,63,200,.08) 0%,transparent 55%);pointer-events:none;}
+.pt2 .frame{position:absolute;inset:11px;border:2px solid rgba(155,63,200,.55);border-radius:6px;pointer-events:none;}
+.pt2 .topbar{background:linear-gradient(90deg,#4A1080,#7B28B0,#4A1080);border-top:2px solid rgba(200,150,255,.6);border-bottom:2px solid rgba(200,150,255,.6);padding:.45rem 1.8rem;text-align:center;margin:26px 20px 0;position:relative;z-index:1;}
+.pt2 .topbar .om{font-size:2.2rem;color:#D4A8FF;text-shadow:0 0 16px rgba(155,63,200,.7);display:block;line-height:1.1;}
+.pt2 .occasion{text-align:center;font-size:1.2rem;font-weight:700;color:#fff;margin:.55rem 1.5rem .1rem;position:relative;z-index:1;}
+.pt2 .shlok{text-align:center;font-size:.78rem;color:rgba(200,170,255,.8);font-style:italic;margin:.1rem 1.8rem .5rem;position:relative;z-index:1;line-height:1.5;}
+.pt2 .deity-row{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin:.5rem 1.5rem;position:relative;z-index:1;flex-wrap:wrap;}
+.pt2 .deity-info{text-align:center;}
+.pt2 .deity-name{font-size:.88rem;font-weight:700;color:#D4A8FF;margin-top:.3rem;}
+.pt2 .deity-sub{font-size:.7rem;color:rgba(200,170,255,.65);}
+.pt2 .photo-circle{box-shadow:none;}
+.pt2 .photo-placeholder{background:rgba(100,30,154,.35);}
+.pt2 .photo-frame{box-shadow:0 0 28px rgba(155,63,200,.5),0 6px 24px rgba(0,0,0,.5);}
+.pt2 .deity-photo-box .photo-frame::before{border-color:rgba(200,150,255,.9);}
+.pt2 .deity-photo-box .fc{border-color:#D4A8FF;}
+.pt2 .msg-box{background:rgba(100,30,154,.25);border:1px solid rgba(155,63,200,.35);border-radius:6px;margin:.5rem 1.5rem;padding:.65rem 1rem;text-align:center;position:relative;z-index:1;flex:1;}
+.pt2 .msg-box p{color:rgba(220,200,255,.88);font-size:.82rem;line-height:1.65;font-style:italic;}
+.pt2 .footer{background:linear-gradient(90deg,#4A1080,#7B28B0,#4A1080);border-top:2px solid rgba(155,63,200,.6);margin:auto 20px 26px;border-radius:4px;padding:.55rem 1rem;position:relative;z-index:1;display:flex;align-items:center;gap:.85rem;}
+.pt2 .footer .pandit-circle{border:2.5px solid #9B3FC8;box-shadow:0 0 12px rgba(155,63,200,.4);}
+.pt2 .footer .pandit-placeholder{border:2.5px solid #9B3FC8;background:rgba(100,30,154,.4);}
+.pt2 .footer-info .fname{font-size:.82rem;font-weight:700;color:#D4A8FF;line-height:1.3;}
+.pt2 .footer-info .fdetail{font-size:.7rem;color:rgba(200,170,255,.8);line-height:1.5;}
+
+/* ── TEMPLATE 3 — Emerald ── */
+.pt3{background:linear-gradient(150deg,#062010,#0D3020,#1A5A30,#062010);}
+.pt3 .bg1{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(46,204,113,.06) 0%,transparent 58%);pointer-events:none;}
+.pt3 .frame{position:absolute;inset:11px;border:2px solid rgba(46,204,113,.45);border-radius:6px;pointer-events:none;}
+.pt3 .topbar{background:linear-gradient(90deg,#0D5020,#1A8040,#0D5020);border-top:2px solid rgba(100,220,100,.65);border-bottom:2px solid rgba(100,220,100,.65);padding:.45rem 1.8rem;text-align:center;margin:26px 20px 0;position:relative;z-index:1;}
+.pt3 .topbar .om{font-size:2.2rem;color:#90EE90;text-shadow:0 0 14px rgba(100,220,100,.6);display:block;line-height:1.1;}
+.pt3 .occasion{text-align:center;font-size:1.2rem;font-weight:700;color:#fff;margin:.55rem 1.5rem .1rem;position:relative;z-index:1;}
+.pt3 .shlok{text-align:center;font-size:.78rem;color:rgba(160,240,160,.8);font-style:italic;margin:.1rem 1.8rem .5rem;position:relative;z-index:1;line-height:1.5;}
+.pt3 .deity-row{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin:.5rem 1.5rem;position:relative;z-index:1;flex-wrap:wrap;}
+.pt3 .deity-info{text-align:center;}
+.pt3 .deity-name{font-size:.88rem;font-weight:700;color:#90EE90;margin-top:.3rem;}
+.pt3 .deity-sub{font-size:.7rem;color:rgba(144,238,144,.65);}
+.pt3 .photo-circle{box-shadow:none;}
+.pt3 .photo-placeholder{background:rgba(20,90,40,.4);}
+.pt3 .photo-frame{box-shadow:0 0 28px rgba(46,204,113,.45),0 6px 24px rgba(0,0,0,.5);}
+.pt3 .deity-photo-box .photo-frame::before{border-color:rgba(100,220,100,.9);}
+.pt3 .deity-photo-box .fc{border-color:#90EE90;}
+.pt3 .msg-box{background:rgba(20,80,40,.38);border:1px solid rgba(46,204,113,.28);border-radius:6px;margin:.5rem 1.5rem;padding:.65rem 1rem;text-align:center;position:relative;z-index:1;flex:1;}
+.pt3 .msg-box p{color:rgba(180,240,180,.88);font-size:.82rem;line-height:1.65;font-style:italic;}
+.pt3 .footer{background:linear-gradient(90deg,#0D5020,#1A8040,#0D5020);border-top:2px solid rgba(46,204,113,.55);margin:auto 20px 26px;border-radius:4px;padding:.55rem 1rem;position:relative;z-index:1;display:flex;align-items:center;gap:.85rem;}
+.pt3 .footer .pandit-circle{border:2.5px solid #2ECC71;box-shadow:0 0 12px rgba(46,204,113,.4);}
+.pt3 .footer .pandit-placeholder{border:2.5px solid #2ECC71;background:rgba(20,90,40,.4);}
+.pt3 .footer-info .fname{font-size:.82rem;font-weight:700;color:#90EE90;line-height:1.3;}
+.pt3 .footer-info .fdetail{font-size:.7rem;color:rgba(180,240,180,.8);line-height:1.5;}
+
+/* ── TEMPLATE 4 — White Sacred ── */
+.pt4{background:linear-gradient(160deg,#FFF8F0,#FFF3E0,#FFF8F0);}
+.pt4 .bg1{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,107,0,.05) 0%,transparent 60%);pointer-events:none;}
+.pt4 .border1{position:absolute;inset:10px;border:2.5px double rgba(255,107,0,.55);border-radius:3px;pointer-events:none;}
+.pt4 .border2{position:absolute;inset:16px;border:1px solid rgba(255,107,0,.28);pointer-events:none;}
+.pt4 .topbar{background:linear-gradient(90deg,var(--saffron),var(--deep),var(--saffron));padding:.45rem 1.8rem;text-align:center;margin:26px 20px 0;position:relative;z-index:1;}
+.pt4 .topbar .om{font-size:2.2rem;color:#fff;text-shadow:0 0 12px rgba(255,255,255,.5);display:block;line-height:1.1;}
+.pt4 .occasion{text-align:center;font-size:1.2rem;font-weight:700;color:#7B1C1C;margin:.55rem 1.5rem .1rem;position:relative;z-index:1;}
+.pt4 .shlok{text-align:center;font-size:.78rem;color:rgba(120,50,0,.75);font-style:italic;margin:.1rem 1.8rem .5rem;position:relative;z-index:1;line-height:1.5;}
+.pt4 .deity-row{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin:.5rem 1.5rem;position:relative;z-index:1;flex-wrap:wrap;}
+.pt4 .deity-info{text-align:center;}
+.pt4 .deity-name{font-size:.88rem;font-weight:700;color:#C04400;margin-top:.3rem;}
+.pt4 .deity-sub{font-size:.7rem;color:rgba(120,50,0,.65);}
+.pt4 .photo-circle{box-shadow:none;}
+.pt4 .photo-placeholder{background:rgba(255,107,0,.08);}
+.pt4 .photo-frame{box-shadow:0 0 22px rgba(255,107,0,.3),0 6px 20px rgba(0,0,0,.25);}
+.pt4 .deity-photo-box .photo-frame::before{border-color:rgba(255,107,0,.9);}
+.pt4 .deity-photo-box .fc{border-color:var(--saffron);}
+.pt4 .msg-box{background:rgba(255,107,0,.06);border:1px solid rgba(255,107,0,.22);border-radius:6px;margin:.5rem 1.5rem;padding:.65rem 1rem;text-align:center;position:relative;z-index:1;flex:1;}
+.pt4 .msg-box p{color:#5A2800;font-size:.82rem;line-height:1.65;font-style:italic;}
+.pt4 .footer{background:linear-gradient(90deg,var(--saffron),var(--deep),var(--saffron));margin:auto 20px 26px;border-radius:4px;padding:.55rem 1rem;position:relative;z-index:1;display:flex;align-items:center;gap:.85rem;}
+.pt4 .footer .pandit-circle{border:2.5px solid #fff;box-shadow:0 0 10px rgba(255,107,0,.3);}
+.pt4 .footer .pandit-placeholder{border:2.5px solid #fff;background:rgba(255,107,0,.15);}
+.pt4 .footer-info .fname{font-size:.82rem;font-weight:700;color:#fff;line-height:1.3;}
+.pt4 .footer-info .fdetail{font-size:.7rem;color:rgba(255,255,255,.85);line-height:1.5;}
+
+/* ── TEMPLATE 5 — Black Gold ── */
+.pt5{background:linear-gradient(155deg,#080600,#181000,#0D0A00);}
+.pt5 .bg1{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(255,215,0,.07) 0%,transparent 60%);pointer-events:none;}
+.pt5 .frame{position:absolute;inset:10px;border:2px solid rgba(255,215,0,.6);border-radius:6px;pointer-events:none;}
+.pt5 .frame2{position:absolute;inset:15px;border:1px solid rgba(255,215,0,.18);pointer-events:none;}
+.pt5 .topbar{background:linear-gradient(90deg,#2A1E00,#5C4200,#2A1E00);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);padding:.45rem 1.8rem;text-align:center;margin:26px 20px 0;position:relative;z-index:1;}
+.pt5 .topbar .om{font-size:2.2rem;color:var(--gold);text-shadow:0 0 18px rgba(255,215,0,.7);display:block;line-height:1.1;}
+.pt5 .occasion{text-align:center;font-size:1.2rem;font-weight:700;color:var(--gold);margin:.55rem 1.5rem .1rem;position:relative;z-index:1;text-shadow:0 0 8px rgba(255,215,0,.3);}
+.pt5 .shlok{text-align:center;font-size:.78rem;color:rgba(255,240,160,.75);font-style:italic;margin:.1rem 1.8rem .5rem;position:relative;z-index:1;line-height:1.5;}
+.pt5 .deity-row{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin:.5rem 1.5rem;position:relative;z-index:1;flex-wrap:wrap;}
+.pt5 .deity-info{text-align:center;}
+.pt5 .deity-name{font-size:.88rem;font-weight:700;color:var(--gold2);margin-top:.3rem;}
+.pt5 .deity-sub{font-size:.7rem;color:rgba(255,240,160,.6);}
+.pt5 .photo-circle{box-shadow:none;}
+.pt5 .photo-placeholder{background:rgba(60,45,0,.5);}
+.pt5 .photo-frame{box-shadow:0 0 32px rgba(255,215,0,.45),0 6px 24px rgba(0,0,0,.6);}
+.pt5 .deity-photo-box .fc{border-color:var(--gold);}
+.pt5 .msg-box{background:rgba(60,45,0,.3);border:1px solid rgba(255,215,0,.2);border-radius:6px;margin:.5rem 1.5rem;padding:.65rem 1rem;text-align:center;position:relative;z-index:1;flex:1;}
+.pt5 .msg-box p{color:rgba(255,240,160,.85);font-size:.82rem;line-height:1.65;font-style:italic;}
+.pt5 .footer{background:linear-gradient(90deg,#2A1E00,#5C4200,#2A1E00);border-top:2px solid rgba(255,215,0,.5);margin:auto 20px 26px;border-radius:4px;padding:.55rem 1rem;position:relative;z-index:1;display:flex;align-items:center;gap:.85rem;}
+.pt5 .footer .pandit-circle{border:2.5px solid var(--gold);box-shadow:0 0 14px rgba(255,215,0,.4);}
+.pt5 .footer .pandit-placeholder{border:2.5px solid var(--gold);background:rgba(60,45,0,.45);}
+.pt5 .footer-info .fname{font-size:.82rem;font-weight:700;color:var(--gold);line-height:1.3;}
+.pt5 .footer-info .fdetail{font-size:.7rem;color:rgba(255,240,160,.8);line-height:1.5;}
+
+/* ── TEMPLATE 6 — Shakti Pink ── */
+.pt6{background:linear-gradient(150deg,#3D0020,#6B0040,#A00060,#3D0020);}
+.pt6 .bg1{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(255,100,180,.07) 0%,transparent 58%);pointer-events:none;}
+.pt6 .frame{position:absolute;inset:11px;border:2px solid rgba(255,105,180,.48);border-radius:6px;pointer-events:none;}
+.pt6 .topbar{background:linear-gradient(90deg,#A00060,#D4008A,#A00060);border-top:2px solid rgba(255,150,200,.65);border-bottom:2px solid rgba(255,150,200,.65);padding:.45rem 1.8rem;text-align:center;margin:26px 20px 0;position:relative;z-index:1;}
+.pt6 .topbar .om{font-size:2.2rem;color:#FFB3D9;text-shadow:0 0 16px rgba(255,100,180,.7);display:block;line-height:1.1;}
+.pt6 .occasion{text-align:center;font-size:1.2rem;font-weight:700;color:#fff;margin:.55rem 1.5rem .1rem;position:relative;z-index:1;}
+.pt6 .shlok{text-align:center;font-size:.78rem;color:rgba(255,200,230,.8);font-style:italic;margin:.1rem 1.8rem .5rem;position:relative;z-index:1;line-height:1.5;}
+.pt6 .deity-row{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin:.5rem 1.5rem;position:relative;z-index:1;flex-wrap:wrap;}
+.pt6 .deity-info{text-align:center;}
+.pt6 .deity-name{font-size:.88rem;font-weight:700;color:#FFB3D9;margin-top:.3rem;}
+.pt6 .deity-sub{font-size:.7rem;color:rgba(255,180,220,.65);}
+.pt6 .photo-circle{box-shadow:none;}
+.pt6 .photo-placeholder{background:rgba(120,0,60,.38);}
+.pt6 .photo-frame{box-shadow:0 0 28px rgba(255,105,180,.5),0 6px 24px rgba(0,0,0,.5);}
+.pt6 .deity-photo-box .photo-frame::before{border-color:rgba(255,150,200,.9);}
+.pt6 .deity-photo-box .fc{border-color:#FFB3D9;}
+.pt6 .msg-box{background:rgba(120,0,60,.32);border:1px solid rgba(255,105,180,.28);border-radius:6px;margin:.5rem 1.5rem;padding:.65rem 1rem;text-align:center;position:relative;z-index:1;flex:1;}
+.pt6 .msg-box p{color:rgba(255,200,230,.88);font-size:.82rem;line-height:1.65;font-style:italic;}
+.pt6 .footer{background:linear-gradient(90deg,#A00060,#D4008A,#A00060);border-top:2px solid rgba(255,105,180,.55);margin:auto 20px 26px;border-radius:4px;padding:.55rem 1rem;position:relative;z-index:1;display:flex;align-items:center;gap:.85rem;}
+.pt6 .footer .pandit-circle{border:2.5px solid #FF69B4;box-shadow:0 0 12px rgba(255,105,180,.4);}
+.pt6 .footer .pandit-placeholder{border:2.5px solid #FF69B4;background:rgba(120,0,60,.4);}
+.pt6 .footer-info .fname{font-size:.82rem;font-weight:700;color:#FFB3D9;line-height:1.3;}
+.pt6 .footer-info .fdetail{font-size:.7rem;color:rgba(255,200,230,.8);line-height:1.5;}
+
+/* ── TEMPLATE 7 — Sky Blue ── */
+.pt7{background:linear-gradient(150deg,#001830,#003060,#004890,#001830);}
+.pt7 .bg1{position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(100,180,255,.07) 0%,transparent 58%);pointer-events:none;}
+.pt7 .frame{position:absolute;inset:11px;border:2px solid rgba(100,180,255,.45);border-radius:6px;pointer-events:none;}
+.pt7 .topbar{background:linear-gradient(90deg,#003878,#0060C0,#003878);border-top:2px solid rgba(100,180,255,.6);border-bottom:2px solid rgba(100,180,255,.6);padding:.45rem 1.8rem;text-align:center;margin:26px 20px 0;position:relative;z-index:1;}
+.pt7 .topbar .om{font-size:2.2rem;color:#A8D8FF;text-shadow:0 0 14px rgba(100,180,255,.65);display:block;line-height:1.1;}
+.pt7 .occasion{text-align:center;font-size:1.2rem;font-weight:700;color:#fff;margin:.55rem 1.5rem .1rem;position:relative;z-index:1;}
+.pt7 .shlok{text-align:center;font-size:.78rem;color:rgba(180,220,255,.8);font-style:italic;margin:.1rem 1.8rem .5rem;position:relative;z-index:1;line-height:1.5;}
+.pt7 .deity-row{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin:.5rem 1.5rem;position:relative;z-index:1;flex-wrap:wrap;}
+.pt7 .deity-info{text-align:center;}
+.pt7 .deity-name{font-size:.88rem;font-weight:700;color:#A8D8FF;margin-top:.3rem;}
+.pt7 .deity-sub{font-size:.7rem;color:rgba(180,220,255,.65);}
+.pt7 .photo-circle{box-shadow:none;}
+.pt7 .photo-placeholder{background:rgba(0,60,120,.4);}
+.pt7 .photo-frame{box-shadow:0 0 28px rgba(100,180,255,.45),0 6px 24px rgba(0,0,0,.5);}
+.pt7 .deity-photo-box .photo-frame::before{border-color:rgba(100,180,255,.9);}
+.pt7 .deity-photo-box .fc{border-color:#A8D8FF;}
+.pt7 .msg-box{background:rgba(0,60,120,.3);border:1px solid rgba(100,180,255,.28);border-radius:6px;margin:.5rem 1.5rem;padding:.65rem 1rem;text-align:center;position:relative;z-index:1;flex:1;}
+.pt7 .msg-box p{color:rgba(180,220,255,.88);font-size:.82rem;line-height:1.65;font-style:italic;}
+.pt7 .footer{background:linear-gradient(90deg,#003878,#0060C0,#003878);border-top:2px solid rgba(100,180,255,.55);margin:auto 20px 26px;border-radius:4px;padding:.55rem 1rem;position:relative;z-index:1;display:flex;align-items:center;gap:.85rem;}
+.pt7 .footer .pandit-circle{border:2.5px solid #5BAAFF;box-shadow:0 0 12px rgba(100,180,255,.4);}
+.pt7 .footer .pandit-placeholder{border:2.5px solid #5BAAFF;background:rgba(0,60,120,.4);}
+.pt7 .footer-info .fname{font-size:.82rem;font-weight:700;color:#A8D8FF;line-height:1.3;}
+.pt7 .footer-info .fdetail{font-size:.7rem;color:rgba(180,220,255,.8);line-height:1.5;}
+
+/* ── TEMPLATE 8 — Autumn Red ── */
+.pt8{background:linear-gradient(150deg,#300000,#600A00,#8B1500,#300000);}
+.pt8 .bg1{position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(255,80,0,.07) 0%,transparent 55%);pointer-events:none;}
+.pt8 .frame{position:absolute;inset:11px;border:2px solid rgba(255,100,50,.45);border-radius:6px;pointer-events:none;}
+.pt8 .topbar{background:linear-gradient(90deg,#600A00,#B01800,#600A00);border-top:2px solid rgba(255,100,50,.65);border-bottom:2px solid rgba(255,100,50,.65);padding:.45rem 1.8rem;text-align:center;margin:26px 20px 0;position:relative;z-index:1;}
+.pt8 .topbar .om{font-size:2.2rem;color:#FFB08A;text-shadow:0 0 14px rgba(255,100,50,.65);display:block;line-height:1.1;}
+.pt8 .occasion{text-align:center;font-size:1.2rem;font-weight:700;color:#fff;margin:.55rem 1.5rem .1rem;position:relative;z-index:1;}
+.pt8 .shlok{text-align:center;font-size:.78rem;color:rgba(255,180,140,.8);font-style:italic;margin:.1rem 1.8rem .5rem;position:relative;z-index:1;line-height:1.5;}
+.pt8 .deity-row{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin:.5rem 1.5rem;position:relative;z-index:1;flex-wrap:wrap;}
+.pt8 .deity-info{text-align:center;}
+.pt8 .deity-name{font-size:.88rem;font-weight:700;color:#FFB08A;margin-top:.3rem;}
+.pt8 .deity-sub{font-size:.7rem;color:rgba(255,180,140,.65);}
+.pt8 .photo-circle{box-shadow:none;}
+.pt8 .photo-placeholder{background:rgba(100,20,0,.4);}
+.pt8 .photo-frame{box-shadow:0 0 28px rgba(255,100,50,.45),0 6px 24px rgba(0,0,0,.5);}
+.pt8 .deity-photo-box .photo-frame::before{border-color:rgba(255,120,60,.9);}
+.pt8 .deity-photo-box .fc{border-color:#FFB08A;}
+.pt8 .msg-box{background:rgba(100,20,0,.32);border:1px solid rgba(255,100,50,.28);border-radius:6px;margin:.5rem 1.5rem;padding:.65rem 1rem;text-align:center;position:relative;z-index:1;flex:1;}
+.pt8 .msg-box p{color:rgba(255,180,140,.88);font-size:.82rem;line-height:1.65;font-style:italic;}
+.pt8 .footer{background:linear-gradient(90deg,#600A00,#B01800,#600A00);border-top:2px solid rgba(255,100,50,.55);margin:auto 20px 26px;border-radius:4px;padding:.55rem 1rem;position:relative;z-index:1;display:flex;align-items:center;gap:.85rem;}
+.pt8 .footer .pandit-circle{border:2.5px solid #FF6432;box-shadow:0 0 12px rgba(255,100,50,.4);}
+.pt8 .footer .pandit-placeholder{border:2.5px solid #FF6432;background:rgba(100,20,0,.4);}
+.pt8 .footer-info .fname{font-size:.82rem;font-weight:700;color:#FFB08A;line-height:1.3;}
+.pt8 .footer-info .fdetail{font-size:.7rem;color:rgba(255,180,140,.8);line-height:1.5;}
+
+/* Deity emoji chips */
+.deity-chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.25rem;}
+.chip{
+  background:rgba(255,215,0,.07);border:1px solid rgba(255,215,0,.2);
+  border-radius:20px;padding:.22rem .6rem;font-size:.74rem;cursor:pointer;
+  transition:all .2s;color:rgba(253,246,227,.75);
+}
+.chip:hover,.chip.active{background:rgba(255,107,0,.18);border-color:var(--saffron);color:var(--gold2);}
+
+/* TOAST */
+.toast{position:fixed;bottom:1.8rem;right:1.5rem;z-index:999;
+  background:#1A5A30;color:#90EE90;padding:.65rem 1.2rem;border-radius:8px;
+  border:1px solid rgba(144,238,144,.4);font-size:.82rem;opacity:0;pointer-events:none;
+  transition:opacity .4s;white-space:nowrap;}
+.toast.show{opacity:1;}
+
+footer{text-align:center;padding:1.3rem 1rem;border-top:1px solid rgba(255,215,0,.1);background:rgba(0,0,0,.28);font-size:.78rem;color:rgba(253,246,227,.4);}
+footer a{color:var(--saffron);text-decoration:none;}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">🙏 पंडित विक्रम तिवारी जी</span>
+  <div style="display:flex;gap:.3rem;flex-wrap:wrap;">
+    <a href="https://krishnagits1.github.io/tiwariji/index.html">🏠 होम</a>
+    <a href="https://krishnagits1.github.io/tiwariji/item.html">📜 पूजा PDF</a>
+    <a href="https://krishnagits1.github.io/tiwariji/resume.html">💒 बायोडाटा</a>
+  </div>
+</nav>
+
+<header>
+  <span class="h-om">ॐ</span>
+  <h1>देवी-देवता पोस्टर बनाएँ</h1>
+  <p>त्योहार एवं धार्मिक अवसरों के लिए सुंदर पोस्टर तैयार करें</p>
+</header>
+
+<div class="wrap">
+
+  <!-- FORM PANEL -->
+  <div class="fpanel">
+    <h2>✏️ पोस्टर की जानकारी</h2>
+
+    <div class="fg">
+      <label>त्योहार / अवसर का नाम</label>
+      <input id="f_occasion" value="दीपावली की हार्दिक शुभकामनाएँ" oninput="updatePreview()"/>
+    </div>
+
+    <div class="fg">
+      <label>शुभकामना संदेश / श्लोक</label>
+      <textarea id="f_msg" oninput="updatePreview()">दीप जले, मन महके, हर घर में खुशियाँ आएँ।
+लक्ष्मी माता की कृपा सदा बनी रहे।।
+— पंडित विक्रम तिवारी जी की ओर से</textarea>
+    </div>
+
+    <div class="fg">
+      <label>देवी / देवता चुनें (या खुद टाइप करें)</label>
+      <input id="f_deity" value="माँ लक्ष्मी" oninput="updatePreview()" style="margin-bottom:.4rem;"/>
+      <div class="deity-chips" id="deityChips">
+        <span class="chip active" onclick="setDeity('माँ लक्ष्मी',this)">🪔 माँ लक्ष्मी</span>
+        <span class="chip" onclick="setDeity('श्री गणेश',this)">🐘 श्री गणेश</span>
+        <span class="chip" onclick="setDeity('श्री राम',this)">🏹 श्री राम</span>
+        <span class="chip" onclick="setDeity('श्री कृष्ण',this)">🪶 श्री कृष्ण</span>
+        <span class="chip" onclick="setDeity('माँ दुर्गा',this)">⚔️ माँ दुर्गा</span>
+        <span class="chip" onclick="setDeity('भगवान शिव',this)">🔱 भगवान शिव</span>
+        <span class="chip" onclick="setDeity('श्री हनुमान',this)">🌟 श्री हनुमान</span>
+        <span class="chip" onclick="setDeity('माँ सरस्वती',this)">🎵 माँ सरस्वती</span>
+        <span class="chip" onclick="setDeity('श्री विष्णु',this)">🌊 श्री विष्णु</span>
+        <span class="chip" onclick="setDeity('माँ काली',this)">🌑 माँ काली</span>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label>📸 देवता की फ़ोटो (पासपोर्ट साइज़ सर्कल)</label>
+      <div class="upload-box" onclick="document.getElementById('deityPhoto').click()">
+        <input type="file" id="deityPhoto" accept="image/*" onchange="handleDeityPhoto(this)"/>
+        <span class="ub-icon">🖼️</span>
+        <p>क्लिक करें • पासपोर्ट साइज़ सर्कल में दिखेगा</p>
+        <img class="ub-preview" id="deityPreviewThumb"/>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label>📸 पंडित जी की फ़ोटो (Footer में Left)</label>
+      <div class="upload-box" onclick="document.getElementById('panditPhoto').click()">
+        <input type="file" id="panditPhoto" accept="image/*" onchange="handlePanditPhoto(this)"/>
+        <span class="ub-icon">👨‍⚕️</span>
+        <p>क्लिक करें • Footer के बाईं ओर दिखेगा</p>
+        <img class="ub-preview" id="panditPreviewThumb"/>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label>पंडित जी का नाम</label>
+      <input id="f_pname" value="आचार्य पंडित विक्रम तिवारी जी" oninput="updatePreview()"/>
+    </div>
+    <div class="fg">
+      <label>मोबाइल नंबर</label>
+      <input id="f_mobile" value="📞 9415928664 | 7081515744" oninput="updatePreview()"/>
+    </div>
+    <div class="fg">
+      <label>पता</label>
+      <input id="f_addr" value="पटना, बड़हलगंज, गोरखपुर (उत्तर प्रदेश)" oninput="updatePreview()"/>
+    </div>
+
+    <button class="btn btn-primary" onclick="updatePreview()">🔄 पूर्वावलोकन अपडेट</button>
+    <button class="btn btn-gold" onclick="downloadPoster()">⬇️ पोस्टर डाउनलोड</button>
+    <button class="btn btn-green" onclick="shareWhatsApp()">📱 WhatsApp शेयर</button>
+    <button class="btn btn-out" onclick="printPoster()">🖨️ प्रिंट करें</button>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="rpanel">
+
+    <!-- Template Picker -->
+    <div class="tsec">
+      <h2>🎨 डिज़ाइन चुनें <span style="font-size:.72rem;color:rgba(253,246,227,.45);font-weight:400;">(8 डिज़ाइन)</span></h2>
+      <div class="tgrid">
+        <div class="tc active" onclick="selectT(1,this)">
+          <div class="tc-thumb" style="background:linear-gradient(135deg,#8B1A00,#C04400);">🔱</div>
+          <div class="tc-name">भगवा मंडल</div>
+        </div>
+        <div class="tc" onclick="selectT(2,this)">
+          <div class="tc-thumb" style="background:linear-gradient(135deg,#1E1468,#7B28B0);">🌙</div>
+          <div class="tc-name">नील राजसी</div>
+        </div>
+        <div class="tc" onclick="selectT(3,this)">
+          <div class="tc-thumb" style="background:linear-gradient(135deg,#062010,#1A8040);">🍃</div>
+          <div class="tc-name">हरित प्रकृति</div>
+        </div>
+        <div class="tc" onclick="selectT(4,this)">
+          <div class="tc-thumb" style="background:linear-gradient(135deg,#FFF3E0,#FFCF9E);font-size:1.6rem;">🌸</div>
+          <div class="tc-name">श्वेत दिव्य</div>
+        </div>
+        <div class="tc" onclick="selectT(5,this)">
+          <div class="tc-thumb" style="background:linear-gradient(135deg,#0A0800,#5C4200);">✨</div>
+          <div class="tc-name">स्वर्ण श्याम</div>
+        </div>
+        <div class="tc" onclick="selectT(6,this)">
+          <div class="tc-thumb" style="background:linear-gradient(135deg,#3D0020,#D4008A);">🌺</div>
+          <div class="tc-name">शक्ति गुलाबी</div>
+        </div>
+        <div class="tc" onclick="selectT(7,this)">
+          <div class="tc-thumb" style="background:linear-gradient(135deg,#001830,#004890);">🌊</div>
+          <div class="tc-name">नीलाम्बर</div>
+        </div>
+        <div class="tc" onclick="selectT(8,this)">
+          <div class="tc-thumb" style="background:linear-gradient(135deg,#300000,#8B1500);">🍂</div>
+          <div class="tc-name">रुद्र लाल</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Preview -->
+    <div class="pvwrap">
+      <h2>👁️ पोस्टर पूर्वावलोकन</h2>
+      <div class="pv-scroll" id="pvScroll">
+        <div id="previewBox" style="width:600px;"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>🙏 © आचार्य पंडित विक्रम तिवारी जी गोरखपुर — <a href="https://krishnagits1.github.io/tiwariji/index.html">होम पेज</a></p>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+let curT = 1;
+let deityDataURL = null;
+let panditDataURL = null;
+
+const tCls = {1:'pt1',2:'pt2',3:'pt3',4:'pt4',5:'pt5',6:'pt6',7:'pt7',8:'pt8'};
+
+function selectT(n, el){
+  curT = n;
+  document.querySelectorAll('.tc').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  updatePreview();
+}
+
+function setDeity(name, el){
+  document.getElementById('f_deity').value = name;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  updatePreview();
+}
+
+function gv(id){ return (document.getElementById(id)||{}).value||''; }
+
+function buildDeityBlock(cls){
+  const inner = deityDataURL
+    ? `<img class="photo-circle" src="${deityDataURL}" alt="deity"/>`
+    : (()=>{
+        const dname = gv('f_deity');
+        const emap={'माँ लक्ष्मी':'🪔','श्री गणेश':'🐘','श्री राम':'🏹','श्री कृष्ण':'🪶',
+          'माँ दुर्गा':'⚔️','भगवान शिव':'🔱','श्री हनुमान':'🌟','माँ सरस्वती':'🎵',
+          'श्री विष्णु':'🌊','माँ काली':'🌑'};
+        return `<div class="photo-placeholder">${emap[dname]||'🙏'}</div>`;
+      })();
+  return `
+    <div class="deity-photo-box">
+      <div class="photo-frame">
+        ${inner}
+      </div>
+      <div class="fc fc-tl"></div>
+      <div class="fc fc-tr"></div>
+      <div class="fc fc-bl"></div>
+      <div class="fc fc-br"></div>
+    </div>`;
+}
+
+function buildPanditBlock(cls){
+  if(panditDataURL){
+    return `<img class="pandit-circle" src="${panditDataURL}" alt="pandit"/>`;
+  }
+  return `<div class="pandit-placeholder">🙏</div>`;
+}
+
+function buildPoster(){
+  const cls = tCls[curT];
+  const occasion = gv('f_occasion');
+  const msg      = gv('f_msg').replace(/\n/g,'<br>');
+  const deity    = gv('f_deity');
+  const pname    = gv('f_pname');
+  const mobile   = gv('f_mobile');
+  const addr     = gv('f_addr');
+
+  // extra decorators per template
+  const extras = {
+    pt1:`<div class="bg1"></div><div class="border1"></div><div class="border2"></div>
+         <div class="c ctl"></div><div class="c ctr"></div><div class="c cbl"></div><div class="c cbr"></div>`,
+    pt2:`<div class="bg1"></div><div class="frame"></div>`,
+    pt3:`<div class="bg1"></div><div class="frame"></div>`,
+    pt4:`<div class="bg1"></div><div class="border1"></div><div class="border2"></div>`,
+    pt5:`<div class="bg1"></div><div class="frame"></div><div class="frame2"></div>`,
+    pt6:`<div class="bg1"></div><div class="frame"></div>`,
+    pt7:`<div class="bg1"></div><div class="frame"></div>`,
+    pt8:`<div class="bg1"></div><div class="frame"></div>`,
+  };
+
+  return `
+  <div class="poster-root ${cls}">
+    ${extras[cls]||''}
+
+    <div class="topbar">
+      <span class="om">ॐ</span>
+    </div>
+
+    <div class="occasion">🙏 ${occasion} 🙏</div>
+    <div class="shlok">— हर आस्था का आरंभ वेदों से, हर पूजा की पूर्णता मंत्रों से —</div>
+
+    <div class="deity-row">
+      <div class="deity-info">
+        ${buildDeityBlock(cls)}
+        <div class="deity-name" style="margin-top:.55rem;">${deity}</div>
+        <div class="deity-sub">की कृपा सदा बनी रहे</div>
+      </div>
+    </div>
+
+    <div class="msg-box">
+      <p>${msg}</p>
+    </div>
+
+    <div class="footer">
+      ${buildPanditBlock(cls)}
+      <div class="footer-info">
+        <div class="fname">${pname}</div>
+        <div class="fdetail">${mobile}</div>
+        <div class="fdetail">📍 ${addr}</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function updatePreview(){
+  const box = document.getElementById('previewBox');
+  box.innerHTML = buildPoster();
+  // scale to fit container
+  const wrap = document.getElementById('pvScroll');
+  const available = wrap.clientWidth || 620;
+  const scale = Math.min(1, (available-20)/600);
+  box.style.transform = `scale(${scale})`;
+  box.style.transformOrigin = 'top left';
+  box.style.width = '600px';
+  wrap.style.height = Math.round(900*scale+20)+'px';
+}
+
+function handleDeityPhoto(input){
+  const f = input.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = e=>{
+    deityDataURL = e.target.result;
+    const t = document.getElementById('deityPreviewThumb');
+    t.src=e.target.result; t.style.display='block';
+    updatePreview();
+  };
+  r.readAsDataURL(f);
+}
+function handlePanditPhoto(input){
+  const f = input.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = e=>{
+    panditDataURL = e.target.result;
+    const t = document.getElementById('panditPreviewThumb');
+    t.src=e.target.result; t.style.display='block';
+    updatePreview();
+  };
+  r.readAsDataURL(f);
+}
+
+async function downloadPoster(){
+  showToast('⏳ पोस्टर तैयार हो रहा है...');
+  // Render at full 600px for download
+  const tmp = document.createElement('div');
+  tmp.style.cssText='position:fixed;left:-9999px;top:0;width:600px;';
+  tmp.innerHTML = buildPoster();
+  document.body.appendChild(tmp);
+  try{
+    const canvas = await html2canvas(tmp.firstElementChild,{
+      scale:2,useCORS:true,backgroundColor:null,logging:false,width:600,windowWidth:600
+    });
+    const link = document.createElement('a');
+    link.download = (gv('f_occasion')||'poster').replace(/\s+/g,'_')+'_tiwariji.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    showToast('✅ पोस्टर डाउनलोड हो गया!');
+  }catch(e){showToast('❌ त्रुटि हुई, पुनः प्रयास करें।');}
+  document.body.removeChild(tmp);
+}
+
+async function shareWhatsApp(){
+  showToast('⏳ शेयर के लिए तैयार हो रहा है...');
+  const tmp = document.createElement('div');
+  tmp.style.cssText='position:fixed;left:-9999px;top:0;width:600px;';
+  tmp.innerHTML = buildPoster();
+  document.body.appendChild(tmp);
+  try{
+    const canvas = await html2canvas(tmp.firstElementChild,{scale:2,useCORS:true,backgroundColor:null,logging:false,width:600,windowWidth:600});
+    canvas.toBlob(async blob=>{
+      if(navigator.share && navigator.canShare && navigator.canShare({files:[new File([blob],'poster.png',{type:'image/png'})]})){
+        await navigator.share({files:[new File([blob],'poster.png',{type:'image/png'})],title:'पोस्टर — पंडित विक्रम तिवारी जी'});
+      } else {
+        const url = `https://wa.me/?text=${encodeURIComponent('🙏 '+gv('f_occasion')+' 🙏\n'+gv('f_pname')+'\n'+gv('f_mobile'))}`;
+        window.open(url,'_blank');
+      }
+    },'image/png');
+  }catch(e){showToast('❌ त्रुटि हुई।');}
+  document.body.removeChild(tmp);
+}
+
+function printPoster(){
+  const tmp = document.createElement('div');
+  tmp.style.cssText='position:fixed;left:-9999px;top:0;width:600px;';
+  tmp.innerHTML = buildPoster();
+  document.body.appendChild(tmp);
+  html2canvas(tmp.firstElementChild,{scale:2,useCORS:true,backgroundColor:null,width:600,windowWidth:600}).then(canvas=>{
+    document.body.removeChild(tmp);
+    const pw = window.open('','_blank');
+    pw.document.write(`<!DOCTYPE html><html><head><style>
+      *{margin:0;padding:0}body{background:#fff}
+      img{max-width:100%;display:block;}
+      @media print{body{margin:0;}}
+    </style></head><body><img src="${canvas.toDataURL('image/png')}"/></body></html>`);
+    pw.document.close();
+    setTimeout(()=>{pw.focus();pw.print();},600);
+  });
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+window.addEventListener('resize', updatePreview);
+updatePreview();
+</script>
+</body>
+</html>
