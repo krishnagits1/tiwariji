@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>🙏 पूजा / अनुष्ठान PDF — पंडित विक्रम तिवारी जी</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root {
+  --saffron:#FF6B00;--deep:#C04400;--gold:#FFD700;--gold2:#FFF0A0;
+  --maroon:#7B1C1C;--cream:#FDF6E3;--dark:#1A0A00;--bg:#1E0B00;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:'Noto Serif Devanagari','Tiro Devanagari Hindi',serif;
+  min-height:100vh;
+  background-image:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(255,107,0,0.13) 0%,transparent 70%),
+    radial-gradient(ellipse 60% 40% at 90% 100%,rgba(123,28,28,0.12) 0%,transparent 60%);
+}
+
+/* NAV */
+nav{
+  background:rgba(26,10,0,0.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,215,0,0.2);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.7rem 1.5rem;position:sticky;top:0;z-index:100;flex-wrap:wrap;gap:0.5rem;
+}
+.nav-brand{
+  font-size:1rem;font-weight:700;
+  background:linear-gradient(135deg,var(--gold2),var(--gold),var(--saffron));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+nav a{
+  color:rgba(253,246,227,0.75);font-size:0.8rem;text-decoration:none;
+  padding:0.3rem 0.75rem;border-radius:20px;transition:all 0.2s;
+}
+nav a:hover{background:rgba(255,107,0,0.2);color:var(--gold2);}
+
+/* HEADER */
+header{
+  text-align:center;padding:2.5rem 1rem 1.5rem;
+  border-bottom:1px solid rgba(255,215,0,0.12);
+}
+.page-om{
+  font-size:3.5rem;
+  background:linear-gradient(135deg,var(--gold),var(--saffron),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 16px rgba(255,215,0,0.4));
+  animation:glow 3s ease-in-out infinite;
+}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 10px rgba(255,215,0,0.35))}50%{filter:drop-shadow(0 0 28px rgba(255,165,0,0.7))}}
+header h1{
+  font-size:clamp(1.2rem,3.5vw,2rem);font-weight:700;margin:0.5rem 0 0.25rem;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+header p{font-size:0.85rem;color:rgba(253,246,227,0.6);}
+
+/* MAIN LAYOUT */
+.main-wrap{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  gap:1.5rem;
+  max-width:1280px;margin:1.5rem auto;padding:0 1.2rem 3rem;
+}
+@media(max-width:860px){.main-wrap{grid-template-columns:1fr;}}
+
+/* FORM PANEL */
+.form-panel{
+  background:linear-gradient(160deg,rgba(255,107,0,0.07),rgba(26,10,0,0.85));
+  border:1px solid rgba(255,215,0,0.18);
+  border-radius:16px;padding:1.5rem;
+  height:fit-content;position:sticky;top:70px;
+}
+.form-panel h2{
+  font-size:1.05rem;color:var(--gold);margin-bottom:1.2rem;text-align:center;
+  border-bottom:1px solid rgba(255,215,0,0.15);padding-bottom:0.7rem;
+}
+.form-group{margin-bottom:1rem;}
+.form-group label{
+  display:block;font-size:0.8rem;color:rgba(253,246,227,0.7);margin-bottom:0.35rem;
+}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,215,0,0.2);border-radius:8px;
+  color:var(--cream);font-family:inherit;font-size:0.88rem;
+  padding:0.6rem 0.8rem;outline:none;
+  transition:border-color 0.2s,background 0.2s;resize:vertical;
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{
+  border-color:var(--saffron);background:rgba(255,107,0,0.08);
+}
+.form-group select option{background:#2D1000;color:var(--cream);}
+.form-group textarea{min-height:70px;}
+
+/* Photo upload */
+.upload-zone{
+  border:2px dashed rgba(255,215,0,0.3);border-radius:10px;
+  padding:1.2rem;text-align:center;cursor:pointer;
+  transition:border-color 0.3s,background 0.3s;
+  background:rgba(255,215,0,0.03);
+}
+.upload-zone:hover{border-color:var(--saffron);background:rgba(255,107,0,0.07);}
+.upload-zone input{display:none;}
+.upload-zone .icon{font-size:2rem;display:block;margin-bottom:0.4rem;}
+.upload-zone p{font-size:0.78rem;color:rgba(253,246,227,0.55);}
+#uploadedImg{
+  max-width:100%;max-height:100px;border-radius:8px;
+  margin-top:0.6rem;display:none;border:2px solid rgba(255,215,0,0.3);
+}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:0.5rem;justify-content:center;
+  font-family:inherit;font-size:0.9rem;font-weight:700;
+  padding:0.75rem 1.4rem;border-radius:50px;border:none;cursor:pointer;
+  transition:transform 0.2s,box-shadow 0.2s;width:100%;margin-top:0.5rem;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--saffron),var(--deep));
+  color:#fff;box-shadow:0 4px 18px rgba(255,107,0,0.35);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,107,0,0.5);}
+.btn-gold{
+  background:linear-gradient(135deg,#c9a227,#e8c840,#c9a227);
+  color:#1A0A00;box-shadow:0 4px 18px rgba(255,215,0,0.3);
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,215,0,0.5);}
+.btn-outline{
+  background:transparent;color:var(--gold);
+  border:1px solid rgba(255,215,0,0.4);margin-top:0.4rem;
+}
+.btn-outline:hover{background:rgba(255,215,0,0.08);border-color:var(--gold);}
+
+/* RIGHT PANEL */
+.right-panel{}
+
+/* TEMPLATE PICKER */
+.template-section{margin-bottom:1.5rem;}
+.template-section h2{
+  font-size:1rem;color:var(--gold);margin-bottom:1rem;
+  display:flex;align-items:center;gap:0.5rem;
+}
+.template-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:0.7rem;
+}
+.tmpl-card{
+  background:rgba(255,107,0,0.06);border:2px solid rgba(255,215,0,0.15);
+  border-radius:10px;padding:0.7rem 0.5rem;text-align:center;cursor:pointer;
+  transition:all 0.25s;
+}
+.tmpl-card:hover{border-color:rgba(255,215,0,0.5);background:rgba(255,107,0,0.12);}
+.tmpl-card.active{border-color:var(--gold);background:rgba(255,215,0,0.1);box-shadow:0 0 0 2px rgba(255,215,0,0.3);}
+.tmpl-card .tmpl-thumb{
+  width:100%;height:70px;border-radius:6px;margin-bottom:0.4rem;
+  display:flex;align-items:center;justify-content:center;font-size:1.8rem;
+  overflow:hidden;
+}
+.tmpl-card .tmpl-name{font-size:0.72rem;color:rgba(253,246,227,0.8);line-height:1.3;}
+
+/* PREVIEW AREA */
+.preview-wrap{
+  background:rgba(0,0,0,0.3);border:1px solid rgba(255,215,0,0.12);
+  border-radius:16px;padding:1.2rem;
+}
+.preview-wrap h2{
+  font-size:1rem;color:var(--gold);margin-bottom:1rem;
+  display:flex;align-items:center;gap:0.5rem;
+}
+.preview-scroll{overflow:auto;max-height:700px;border-radius:8px;}
+#previewBox{
+  width:595px;min-height:842px;
+  margin:0 auto;
+  transform-origin:top center;
+}
+@media(max-width:640px){#previewBox{transform:scale(0.55);transform-origin:top left;}}
+
+/* ══════════ POSTER TEMPLATES ══════════ */
+
+/* T1 — Saffron Mandala */
+.poster-t1{
+  background:linear-gradient(145deg,#5A0D00,#8B1A00,#C04400,#5A0D00);
+  min-height:842px;position:relative;overflow:hidden;
+  font-family:'Noto Serif Devanagari',serif;
+  display:flex;flex-direction:column;
+}
+.poster-t1 .mandala-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(255,215,0,0.08) 0%,transparent 60%),
+    repeating-conic-gradient(rgba(255,215,0,0.03) 0deg,transparent 10deg,rgba(255,215,0,0.03) 20deg);
+}
+.poster-t1 .border-outer{
+  position:absolute;inset:10px;
+  border:3px solid rgba(255,215,0,0.7);border-radius:4px;pointer-events:none;
+}
+.poster-t1 .border-inner{
+  position:absolute;inset:16px;
+  border:1px solid rgba(255,215,0,0.35);border-radius:2px;pointer-events:none;
+}
+.poster-t1 .corner{
+  position:absolute;width:32px;height:32px;
+  border-color:var(--gold);border-style:solid;
+}
+.poster-t1 .corner-tl{top:8px;left:8px;border-width:3px 0 0 3px;}
+.poster-t1 .corner-tr{top:8px;right:8px;border-width:3px 3px 0 0;}
+.poster-t1 .corner-bl{bottom:8px;left:8px;border-width:0 0 3px 3px;}
+.poster-t1 .corner-br{bottom:8px;right:8px;border-width:0 3px 3px 0;}
+.poster-t1 .header-bar{
+  background:linear-gradient(90deg,transparent,rgba(255,215,0,0.2),transparent);
+  border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);
+  padding:0.5rem 2rem;text-align:center;margin:28px 20px 0;position:relative;z-index:1;
+}
+.poster-t1 .header-bar .om{
+  font-size:2.5rem;color:var(--gold);text-shadow:0 0 20px rgba(255,215,0,0.7);
+  display:block;line-height:1;
+}
+.poster-t1 .pandit-name{
+  text-align:center;color:var(--gold);font-size:1.5rem;font-weight:700;
+  margin:0.6rem 1.5rem 0.1rem;text-shadow:0 2px 8px rgba(0,0,0,0.6);position:relative;z-index:1;
+}
+.poster-t1 .pandit-addr{
+  text-align:center;color:rgba(255,240,160,0.85);font-size:0.8rem;
+  margin-bottom:0.5rem;position:relative;z-index:1;
+}
+.poster-t1 .deity-photo{
+  width:110px;height:110px;border-radius:50%;
+  border:4px solid var(--gold);object-fit:cover;
+  display:block;margin:0.6rem auto;box-shadow:0 0 28px rgba(255,215,0,0.5);
+  position:relative;z-index:1;
+}
+.poster-t1 .deity-placeholder{
+  width:110px;height:110px;border-radius:50%;
+  border:4px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-size:3rem;background:rgba(255,107,0,0.2);
+  margin:0.6rem auto;box-shadow:0 0 28px rgba(255,215,0,0.4);
+  position:relative;z-index:1;
+}
+.poster-t1 .puja-title{
+  text-align:center;color:#fff;font-size:1.25rem;font-weight:700;
+  background:linear-gradient(90deg,transparent,rgba(123,28,28,0.8),transparent);
+  padding:0.4rem 1.5rem;margin:0 1.5rem 0.3rem;
+  border-top:1px solid rgba(255,215,0,0.4);border-bottom:1px solid rgba(255,215,0,0.4);
+  position:relative;z-index:1;text-shadow:0 1px 4px rgba(0,0,0,0.7);
+}
+.poster-t1 .divider{
+  text-align:center;color:var(--gold);font-size:0.9rem;margin:0.2rem 0;
+  position:relative;z-index:1;
+}
+.poster-t1 .deity-name{
+  text-align:center;color:var(--gold2);font-size:1rem;font-weight:700;
+  margin:0.1rem 1.5rem;position:relative;z-index:1;
+}
+.poster-t1 .mantra-block{
+  background:rgba(0,0,0,0.35);border:1px solid rgba(255,215,0,0.25);
+  border-radius:6px;margin:0.5rem 1.5rem;padding:0.7rem 1rem;
+  text-align:center;position:relative;z-index:1;
+}
+.poster-t1 .mantra-block p{color:var(--gold2);font-size:0.78rem;line-height:1.6;font-style:italic;}
+.poster-t1 .samagri-section{
+  margin:0.5rem 1.5rem;position:relative;z-index:1;
+  flex:1;
+}
+.poster-t1 .samagri-title{
+  color:var(--gold);font-size:0.85rem;font-weight:700;
+  border-left:3px solid var(--saffron);padding-left:0.5rem;margin-bottom:0.4rem;
+}
+.poster-t1 .samagri-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:0.15rem 1rem;
+}
+.poster-t1 .samagri-item{
+  color:rgba(253,246,227,0.88);font-size:0.75rem;
+  display:flex;align-items:center;gap:0.35rem;
+}
+.poster-t1 .samagri-item::before{content:'🌸';font-size:0.6rem;}
+.poster-t1 .footer-bar{
+  background:linear-gradient(90deg,rgba(123,28,28,0.7),rgba(192,68,0,0.7),rgba(123,28,28,0.7));
+  padding:0.5rem 1.5rem;margin:0.5rem 20px 28px;
+  border:1px solid rgba(255,215,0,0.4);border-radius:4px;
+  display:flex;justify-content:space-between;align-items:center;
+  position:relative;z-index:1;flex-wrap:wrap;gap:0.3rem;
+}
+.poster-t1 .footer-bar span{color:var(--gold2);font-size:0.72rem;}
+
+/* T2 — Royal Blue */
+.poster-t2{
+  background:linear-gradient(160deg,#0A0B2E,#1A1060,#2D0A5A,#0A0B2E);
+  min-height:842px;position:relative;overflow:hidden;
+  font-family:'Noto Serif Devanagari',serif;
+  display:flex;flex-direction:column;
+}
+.poster-t2 .stars-bg{position:absolute;inset:0;
+  background:radial-gradient(circle at 20% 30%,rgba(255,215,0,0.06) 0%,transparent 40%),
+    radial-gradient(circle at 80% 70%,rgba(100,50,200,0.08) 0%,transparent 40%);
+}
+.poster-t2 .frame{
+  position:absolute;inset:12px;
+  border:2px solid rgba(255,215,0,0.5);border-radius:8px;pointer-events:none;
+}
+.poster-t2 .header-bar{
+  background:linear-gradient(90deg,#6A1E9A,#9B3FC8,#6A1E9A);
+  border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);
+  padding:0.6rem 2rem;text-align:center;margin:26px 20px 0;position:relative;z-index:1;
+}
+.poster-t2 .om{font-size:2rem;color:var(--gold);display:block;}
+.poster-t2 .pandit-name{
+  text-align:center;color:var(--gold);font-size:1.4rem;font-weight:700;
+  margin:0.6rem 1.5rem 0.1rem;position:relative;z-index:1;
+}
+.poster-t2 .pandit-addr{text-align:center;color:rgba(200,180,255,0.8);font-size:0.78rem;margin-bottom:0.5rem;position:relative;z-index:1;}
+.poster-t2 .deity-photo{width:100px;height:100px;border-radius:50%;border:3px solid #9B3FC8;object-fit:cover;display:block;margin:0.5rem auto;box-shadow:0 0 24px rgba(155,63,200,0.6);position:relative;z-index:1;}
+.poster-t2 .deity-placeholder{width:100px;height:100px;border-radius:50%;border:3px solid #9B3FC8;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:rgba(100,30,154,0.4);margin:0.5rem auto;box-shadow:0 0 24px rgba(155,63,200,0.5);position:relative;z-index:1;}
+.poster-t2 .puja-title{text-align:center;color:#fff;font-size:1.2rem;font-weight:700;background:rgba(100,30,154,0.5);padding:0.4rem 1.5rem;margin:0 1.5rem 0.3rem;border:1px solid rgba(155,63,200,0.5);border-radius:4px;position:relative;z-index:1;}
+.poster-t2 .deity-name{text-align:center;color:#D4A8FF;font-size:0.95rem;font-weight:700;margin:0.2rem 1.5rem;position:relative;z-index:1;}
+.poster-t2 .mantra-block{background:rgba(100,30,154,0.25);border:1px solid rgba(155,63,200,0.35);border-radius:6px;margin:0.5rem 1.5rem;padding:0.6rem 1rem;text-align:center;position:relative;z-index:1;}
+.poster-t2 .mantra-block p{color:rgba(220,200,255,0.9);font-size:0.78rem;line-height:1.6;font-style:italic;}
+.poster-t2 .samagri-section{margin:0.5rem 1.5rem;position:relative;z-index:1;flex:1;}
+.poster-t2 .samagri-title{color:#D4A8FF;font-size:0.85rem;font-weight:700;border-left:3px solid #9B3FC8;padding-left:0.5rem;margin-bottom:0.4rem;}
+.poster-t2 .samagri-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.15rem 1rem;}
+.poster-t2 .samagri-item{color:rgba(220,200,255,0.85);font-size:0.75rem;display:flex;align-items:center;gap:0.35rem;}
+.poster-t2 .samagri-item::before{content:'✦';font-size:0.6rem;color:#9B3FC8;}
+.poster-t2 .footer-bar{background:linear-gradient(90deg,#6A1E9A,#9B3FC8,#6A1E9A);padding:0.5rem 1.5rem;margin:0.5rem 20px 26px;border:1px solid rgba(155,63,200,0.5);border-radius:4px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;flex-wrap:wrap;gap:0.3rem;}
+.poster-t2 .footer-bar span{color:rgba(220,200,255,0.9);font-size:0.72rem;}
+
+/* T3 — Emerald Nature */
+.poster-t3{
+  background:linear-gradient(155deg,#062010,#0D3020,#1A5A30,#062010);
+  min-height:842px;position:relative;overflow:hidden;
+  font-family:'Noto Serif Devanagari',serif;display:flex;flex-direction:column;
+}
+.poster-t3 .frame{position:absolute;inset:12px;border:2px solid rgba(100,220,100,0.4);border-radius:6px;pointer-events:none;}
+.poster-t3 .flowers-bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(100,220,100,0.05) 0%,transparent 60%);}
+.poster-t3 .header-bar{background:linear-gradient(90deg,#0D5020,#1A8040,#0D5020);border-top:2px solid rgba(100,220,100,0.7);border-bottom:2px solid rgba(100,220,100,0.7);padding:0.6rem 2rem;text-align:center;margin:26px 20px 0;position:relative;z-index:1;}
+.poster-t3 .om{font-size:2rem;color:#90EE90;display:block;text-shadow:0 0 16px rgba(100,220,100,0.6);}
+.poster-t3 .pandit-name{text-align:center;color:#90EE90;font-size:1.4rem;font-weight:700;margin:0.6rem 1.5rem 0.1rem;position:relative;z-index:1;}
+.poster-t3 .pandit-addr{text-align:center;color:rgba(144,238,144,0.7);font-size:0.78rem;margin-bottom:0.5rem;position:relative;z-index:1;}
+.poster-t3 .deity-photo{width:100px;height:100px;border-radius:50%;border:3px solid #2ECC71;object-fit:cover;display:block;margin:0.5rem auto;box-shadow:0 0 24px rgba(46,204,113,0.5);position:relative;z-index:1;}
+.poster-t3 .deity-placeholder{width:100px;height:100px;border-radius:50%;border:3px solid #2ECC71;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:rgba(20,90,40,0.5);margin:0.5rem auto;box-shadow:0 0 20px rgba(46,204,113,0.4);position:relative;z-index:1;}
+.poster-t3 .puja-title{text-align:center;color:#fff;font-size:1.2rem;font-weight:700;background:rgba(20,80,40,0.6);padding:0.4rem 1.5rem;margin:0 1.5rem 0.3rem;border:1px solid rgba(46,204,113,0.4);border-radius:4px;position:relative;z-index:1;}
+.poster-t3 .deity-name{text-align:center;color:#90EE90;font-size:0.95rem;font-weight:700;margin:0.2rem 1.5rem;position:relative;z-index:1;}
+.poster-t3 .mantra-block{background:rgba(20,80,40,0.4);border:1px solid rgba(46,204,113,0.3);border-radius:6px;margin:0.5rem 1.5rem;padding:0.6rem 1rem;text-align:center;position:relative;z-index:1;}
+.poster-t3 .mantra-block p{color:rgba(180,240,180,0.9);font-size:0.78rem;line-height:1.6;font-style:italic;}
+.poster-t3 .samagri-section{margin:0.5rem 1.5rem;position:relative;z-index:1;flex:1;}
+.poster-t3 .samagri-title{color:#90EE90;font-size:0.85rem;font-weight:700;border-left:3px solid #2ECC71;padding-left:0.5rem;margin-bottom:0.4rem;}
+.poster-t3 .samagri-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.15rem 1rem;}
+.poster-t3 .samagri-item{color:rgba(180,240,180,0.88);font-size:0.75rem;display:flex;align-items:center;gap:0.35rem;}
+.poster-t3 .samagri-item::before{content:'🍃';font-size:0.6rem;}
+.poster-t3 .footer-bar{background:linear-gradient(90deg,#0D5020,#1A8040,#0D5020);padding:0.5rem 1.5rem;margin:0.5rem 20px 26px;border:1px solid rgba(46,204,113,0.4);border-radius:4px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;flex-wrap:wrap;gap:0.3rem;}
+.poster-t3 .footer-bar span{color:rgba(180,240,180,0.9);font-size:0.72rem;}
+
+/* T4 — White Divine */
+.poster-t4{
+  background:linear-gradient(160deg,#FFF8F0,#FFF3E0,#FFF8F0);
+  min-height:842px;position:relative;overflow:hidden;
+  font-family:'Noto Serif Devanagari',serif;display:flex;flex-direction:column;
+}
+.poster-t4 .border-dbl{position:absolute;inset:10px;border:3px double rgba(255,107,0,0.6);border-radius:4px;pointer-events:none;}
+.poster-t4 .border-inner{position:absolute;inset:16px;border:1px solid rgba(255,107,0,0.3);border-radius:2px;pointer-events:none;}
+.poster-t4 .header-bar{background:linear-gradient(90deg,#FF6B00,#E05500,#FF6B00);padding:0.6rem 2rem;text-align:center;margin:26px 20px 0;position:relative;z-index:1;}
+.poster-t4 .om{font-size:2rem;color:#fff;display:block;text-shadow:0 0 12px rgba(255,255,255,0.5);}
+.poster-t4 .pandit-name{text-align:center;color:#C04400;font-size:1.4rem;font-weight:700;margin:0.6rem 1.5rem 0.1rem;position:relative;z-index:1;}
+.poster-t4 .pandit-addr{text-align:center;color:rgba(120,50,0,0.75);font-size:0.78rem;margin-bottom:0.5rem;position:relative;z-index:1;}
+.poster-t4 .deity-photo{width:100px;height:100px;border-radius:50%;border:4px solid var(--saffron);object-fit:cover;display:block;margin:0.5rem auto;box-shadow:0 0 20px rgba(255,107,0,0.3);position:relative;z-index:1;}
+.poster-t4 .deity-placeholder{width:100px;height:100px;border-radius:50%;border:4px solid var(--saffron);display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:rgba(255,107,0,0.08);margin:0.5rem auto;box-shadow:0 0 16px rgba(255,107,0,0.2);position:relative;z-index:1;}
+.poster-t4 .puja-title{text-align:center;color:#7B1C1C;font-size:1.2rem;font-weight:700;background:rgba(255,107,0,0.1);padding:0.4rem 1.5rem;margin:0 1.5rem 0.3rem;border:1px solid rgba(255,107,0,0.4);border-radius:4px;position:relative;z-index:1;}
+.poster-t4 .deity-name{text-align:center;color:#C04400;font-size:0.95rem;font-weight:700;margin:0.2rem 1.5rem;position:relative;z-index:1;}
+.poster-t4 .mantra-block{background:rgba(255,107,0,0.06);border:1px solid rgba(255,107,0,0.25);border-radius:6px;margin:0.5rem 1.5rem;padding:0.6rem 1rem;text-align:center;position:relative;z-index:1;}
+.poster-t4 .mantra-block p{color:#5A2800;font-size:0.78rem;line-height:1.6;font-style:italic;}
+.poster-t4 .samagri-section{margin:0.5rem 1.5rem;position:relative;z-index:1;flex:1;}
+.poster-t4 .samagri-title{color:#C04400;font-size:0.85rem;font-weight:700;border-left:3px solid var(--saffron);padding-left:0.5rem;margin-bottom:0.4rem;}
+.poster-t4 .samagri-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.15rem 1rem;}
+.poster-t4 .samagri-item{color:#5A2800;font-size:0.75rem;display:flex;align-items:center;gap:0.35rem;}
+.poster-t4 .samagri-item::before{content:'🌸';font-size:0.6rem;}
+.poster-t4 .footer-bar{background:linear-gradient(90deg,#FF6B00,#E05500,#FF6B00);padding:0.5rem 1.5rem;margin:0.5rem 20px 26px;border-radius:4px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;flex-wrap:wrap;gap:0.3rem;}
+.poster-t4 .footer-bar span{color:#fff;font-size:0.72rem;}
+
+/* T5 — Black Gold Luxury */
+.poster-t5{
+  background:linear-gradient(160deg,#0A0800,#1A1500,#0D0B00);
+  min-height:842px;position:relative;overflow:hidden;
+  font-family:'Noto Serif Devanagari',serif;display:flex;flex-direction:column;
+}
+.poster-t5 .frame{position:absolute;inset:10px;border:2px solid rgba(255,215,0,0.6);border-radius:6px;pointer-events:none;}
+.poster-t5 .frame2{position:absolute;inset:16px;border:1px solid rgba(255,215,0,0.2);pointer-events:none;}
+.poster-t5 .bg-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(255,215,0,0.06) 0%,transparent 65%);}
+.poster-t5 .header-bar{background:linear-gradient(90deg,#2A1E00,#5C4200,#2A1E00);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);padding:0.6rem 2rem;text-align:center;margin:26px 20px 0;position:relative;z-index:1;}
+.poster-t5 .om{font-size:2rem;color:var(--gold);display:block;text-shadow:0 0 18px rgba(255,215,0,0.7);}
+.poster-t5 .pandit-name{text-align:center;color:var(--gold);font-size:1.4rem;font-weight:700;margin:0.6rem 1.5rem 0.1rem;position:relative;z-index:1;text-shadow:0 0 10px rgba(255,215,0,0.4);}
+.poster-t5 .pandit-addr{text-align:center;color:rgba(255,215,0,0.6);font-size:0.78rem;margin-bottom:0.5rem;position:relative;z-index:1;}
+.poster-t5 .deity-photo{width:100px;height:100px;border-radius:50%;border:3px solid var(--gold);object-fit:cover;display:block;margin:0.5rem auto;box-shadow:0 0 28px rgba(255,215,0,0.4);position:relative;z-index:1;}
+.poster-t5 .deity-placeholder{width:100px;height:100px;border-radius:50%;border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:rgba(60,45,0,0.5);margin:0.5rem auto;box-shadow:0 0 22px rgba(255,215,0,0.35);position:relative;z-index:1;}
+.poster-t5 .puja-title{text-align:center;color:var(--gold);font-size:1.2rem;font-weight:700;background:rgba(60,45,0,0.4);padding:0.4rem 1.5rem;margin:0 1.5rem 0.3rem;border:1px solid rgba(255,215,0,0.35);border-radius:4px;position:relative;z-index:1;}
+.poster-t5 .deity-name{text-align:center;color:var(--gold2);font-size:0.95rem;font-weight:700;margin:0.2rem 1.5rem;position:relative;z-index:1;}
+.poster-t5 .mantra-block{background:rgba(60,45,0,0.3);border:1px solid rgba(255,215,0,0.2);border-radius:6px;margin:0.5rem 1.5rem;padding:0.6rem 1rem;text-align:center;position:relative;z-index:1;}
+.poster-t5 .mantra-block p{color:rgba(255,240,160,0.85);font-size:0.78rem;line-height:1.6;font-style:italic;}
+.poster-t5 .samagri-section{margin:0.5rem 1.5rem;position:relative;z-index:1;flex:1;}
+.poster-t5 .samagri-title{color:var(--gold);font-size:0.85rem;font-weight:700;border-left:3px solid var(--gold);padding-left:0.5rem;margin-bottom:0.4rem;}
+.poster-t5 .samagri-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.15rem 1rem;}
+.poster-t5 .samagri-item{color:rgba(255,240,160,0.8);font-size:0.75rem;display:flex;align-items:center;gap:0.35rem;}
+.poster-t5 .samagri-item::before{content:'◆';font-size:0.5rem;color:var(--gold);}
+.poster-t5 .footer-bar{background:linear-gradient(90deg,#2A1E00,#5C4200,#2A1E00);padding:0.5rem 1.5rem;margin:0.5rem 20px 26px;border:1px solid rgba(255,215,0,0.4);border-radius:4px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;flex-wrap:wrap;gap:0.3rem;}
+.poster-t5 .footer-bar span{color:rgba(255,240,160,0.85);font-size:0.72rem;}
+
+/* T6 — Pink Shakti */
+.poster-t6{
+  background:linear-gradient(155deg,#3D0020,#6B0040,#A00060,#3D0020);
+  min-height:842px;position:relative;overflow:hidden;
+  font-family:'Noto Serif Devanagari',serif;display:flex;flex-direction:column;
+}
+.poster-t6 .frame{position:absolute;inset:12px;border:2px solid rgba(255,150,200,0.5);border-radius:6px;pointer-events:none;}
+.poster-t6 .header-bar{background:linear-gradient(90deg,#A00060,#D4008A,#A00060);border-top:2px solid rgba(255,150,200,0.7);border-bottom:2px solid rgba(255,150,200,0.7);padding:0.6rem 2rem;text-align:center;margin:26px 20px 0;position:relative;z-index:1;}
+.poster-t6 .om{font-size:2rem;color:#FFB3D9;display:block;text-shadow:0 0 16px rgba(255,100,180,0.7);}
+.poster-t6 .pandit-name{text-align:center;color:#FFB3D9;font-size:1.4rem;font-weight:700;margin:0.6rem 1.5rem 0.1rem;position:relative;z-index:1;}
+.poster-t6 .pandit-addr{text-align:center;color:rgba(255,180,220,0.7);font-size:0.78rem;margin-bottom:0.5rem;position:relative;z-index:1;}
+.poster-t6 .deity-photo{width:100px;height:100px;border-radius:50%;border:3px solid #FF69B4;object-fit:cover;display:block;margin:0.5rem auto;box-shadow:0 0 24px rgba(255,105,180,0.5);position:relative;z-index:1;}
+.poster-t6 .deity-placeholder{width:100px;height:100px;border-radius:50%;border:3px solid #FF69B4;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:rgba(120,0,60,0.4);margin:0.5rem auto;box-shadow:0 0 20px rgba(255,105,180,0.4);position:relative;z-index:1;}
+.poster-t6 .puja-title{text-align:center;color:#fff;font-size:1.2rem;font-weight:700;background:rgba(120,0,60,0.5);padding:0.4rem 1.5rem;margin:0 1.5rem 0.3rem;border:1px solid rgba(255,105,180,0.4);border-radius:4px;position:relative;z-index:1;}
+.poster-t6 .deity-name{text-align:center;color:#FFB3D9;font-size:0.95rem;font-weight:700;margin:0.2rem 1.5rem;position:relative;z-index:1;}
+.poster-t6 .mantra-block{background:rgba(120,0,60,0.35);border:1px solid rgba(255,105,180,0.3);border-radius:6px;margin:0.5rem 1.5rem;padding:0.6rem 1rem;text-align:center;position:relative;z-index:1;}
+.poster-t6 .mantra-block p{color:rgba(255,200,230,0.9);font-size:0.78rem;line-height:1.6;font-style:italic;}
+.poster-t6 .samagri-section{margin:0.5rem 1.5rem;position:relative;z-index:1;flex:1;}
+.poster-t6 .samagri-title{color:#FFB3D9;font-size:0.85rem;font-weight:700;border-left:3px solid #FF69B4;padding-left:0.5rem;margin-bottom:0.4rem;}
+.poster-t6 .samagri-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.15rem 1rem;}
+.poster-t6 .samagri-item{color:rgba(255,200,230,0.88);font-size:0.75rem;display:flex;align-items:center;gap:0.35rem;}
+.poster-t6 .samagri-item::before{content:'🌺';font-size:0.6rem;}
+.poster-t6 .footer-bar{background:linear-gradient(90deg,#A00060,#D4008A,#A00060);padding:0.5rem 1.5rem;margin:0.5rem 20px 26px;border:1px solid rgba(255,105,180,0.4);border-radius:4px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;flex-wrap:wrap;gap:0.3rem;}
+.poster-t6 .footer-bar span{color:rgba(255,200,230,0.9);font-size:0.72rem;}
+
+/* thumb colors */
+.t1-thumb{background:linear-gradient(135deg,#8B1A00,#C04400);}
+.t2-thumb{background:linear-gradient(135deg,#1A1060,#6A1E9A);}
+.t3-thumb{background:linear-gradient(135deg,#062010,#1A8040);}
+.t4-thumb{background:linear-gradient(135deg,#FFF3E0,#FFCF9E);color:#C04400;}
+.t5-thumb{background:linear-gradient(135deg,#0A0800,#5C4200);}
+.t6-thumb{background:linear-gradient(135deg,#3D0020,#D4008A);}
+
+/* Toast */
+.toast{
+  position:fixed;bottom:2rem;right:1.5rem;z-index:999;
+  background:#1A5A30;color:#90EE90;
+  padding:0.7rem 1.3rem;border-radius:8px;
+  border:1px solid rgba(144,238,144,0.4);
+  font-size:0.85rem;opacity:0;pointer-events:none;
+  transition:opacity 0.4s;
+}
+.toast.show{opacity:1;}
+
+footer{
+  text-align:center;padding:1.5rem 1rem;
+  border-top:1px solid rgba(255,215,0,0.12);
+  background:rgba(0,0,0,0.3);
+  font-size:0.8rem;color:rgba(253,246,227,0.45);
+}
+footer a{color:var(--saffron);text-decoration:none;}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">🙏 पंडित विक्रम तिवारी जी</span>
+  <div style="display:flex;gap:0.3rem;flex-wrap:wrap;">
+    <a href="https://krishnagits1.github.io/tiwariji/index.html">🏠 होम</a>
+    <a href="https://krishnagits1.github.io/tiwariji/resume.html">💒 बायोडाटा</a>
+    <a href="https://krishnagits1.github.io/tiwariji/updatedposter.html">🖼️ पोस्टर</a>
+  </div>
+</nav>
+
+<header>
+  <span class="page-om">ॐ</span>
+  <h1>पूजा / अनुष्ठान PDF बनाएँ</h1>
+  <p>सामग्री सूची, मंत्र एवं विवरण के साथ सुंदर PDF तैयार करें</p>
+</header>
+
+<div class="main-wrap">
+
+  <!-- FORM PANEL -->
+  <div class="form-panel">
+    <h2>✏️ जानकारी भरें</h2>
+
+    <div class="form-group">
+      <label>पंडित जी का नाम</label>
+      <input id="f_name" type="text" value="आचार्य पंडित विक्रम तिवारी जी" oninput="updatePreview()"/>
+    </div>
+    <div class="form-group">
+      <label>पता / शहर</label>
+      <input id="f_addr" type="text" value="गोरखपुर, उत्तर प्रदेश" oninput="updatePreview()"/>
+    </div>
+    <div class="form-group">
+      <label>मोबाइल नंबर</label>
+      <input id="f_mobile" type="text" value="+91 99999 99999" oninput="updatePreview()"/>
+    </div>
+    <div class="form-group">
+      <label>अनुष्ठान / पूजा का नाम</label>
+      <input id="f_puja" type="text" value="गृह प्रवेश पूजा" oninput="updatePreview()"/>
+    </div>
+    <div class="form-group">
+      <label>देवी / देवता का नाम</label>
+      <input id="f_deity" type="text" value="श्री गणेश एवं लक्ष्मी माता" oninput="updatePreview()"/>
+    </div>
+    <div class="form-group">
+      <label>संक्षेप विवरण</label>
+      <textarea id="f_desc" oninput="updatePreview()">नए घर में समृद्धि, सुख-शान्ति और शुभता के लिए किया जाने वाला अनुष्ठान।</textarea>
+    </div>
+    <div class="form-group">
+      <label>मंत्र / श्लोक</label>
+      <textarea id="f_mantra" rows="3" oninput="updatePreview()">ॐ श्री महालक्ष्म्यै नमः
+हर कार्य में समृद्धि दे माता।</textarea>
+    </div>
+    <div class="form-group">
+      <label>सामग्री सूची (एक प्रति पंक्ति)</label>
+      <textarea id="f_samagri" rows="7" oninput="updatePreview()">गंगाजल
+दूध
+चावल
+दीपक
+नारियल
+हल्दी
+कुमकुम
+पुष्प माला
+धूप बत्ती
+पंचामृत</textarea>
+    </div>
+    <div class="form-group">
+      <label>देवता की फ़ोटो अपलोड करें</label>
+      <div class="upload-zone" onclick="document.getElementById('photoInput').click()">
+        <input type="file" id="photoInput" accept="image/*" onchange="handlePhoto(this)"/>
+        <span class="icon">🖼️</span>
+        <p>क्लिक करें या यहाँ खींचें</p>
+        <img id="uploadedImg" src="" alt="deity"/>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" onclick="updatePreview()">🔄 पूर्वावलोकन अपडेट करें</button>
+    <button class="btn btn-gold" onclick="downloadPDF()">⬇️ PDF डाउनलोड करें</button>
+    <button class="btn btn-outline" onclick="printPoster()">🖨️ प्रिंट करें</button>
+    <button class="btn btn-outline" id="shareBtn" onclick="sharePoster()">📤 शेयर करें</button>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right-panel">
+
+    <!-- TEMPLATE PICKER -->
+    <div class="template-section">
+      <h2>🎨 पोस्टर डिज़ाइन चुनें</h2>
+      <div class="template-grid">
+        <div class="tmpl-card active" onclick="selectTemplate(1,this)">
+          <div class="tmpl-thumb t1-thumb">🔱</div>
+          <div class="tmpl-name">भगवा मंडल</div>
+        </div>
+        <div class="tmpl-card" onclick="selectTemplate(2,this)">
+          <div class="tmpl-thumb t2-thumb">🌙</div>
+          <div class="tmpl-name">नील राजसी</div>
+        </div>
+        <div class="tmpl-card" onclick="selectTemplate(3,this)">
+          <div class="tmpl-thumb t3-thumb">🍃</div>
+          <div class="tmpl-name">हरित प्रकृति</div>
+        </div>
+        <div class="tmpl-card" onclick="selectTemplate(4,this)">
+          <div class="tmpl-thumb t4-thumb" style="font-size:2rem;">🌸</div>
+          <div class="tmpl-name">श्वेत दिव्य</div>
+        </div>
+        <div class="tmpl-card" onclick="selectTemplate(5,this)">
+          <div class="tmpl-thumb t5-thumb">✨</div>
+          <div class="tmpl-name">स्वर्ण श्याम</div>
+        </div>
+        <div class="tmpl-card" onclick="selectTemplate(6,this)">
+          <div class="tmpl-thumb t6-thumb">🌺</div>
+          <div class="tmpl-name">शक्ति गुलाबी</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="preview-wrap">
+      <h2>👁️ PDF पूर्वावलोकन</h2>
+      <div class="preview-scroll">
+        <div id="previewBox"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>🙏 © आचार्य पंडित विक्रम तिवारी जी गोरखपुर — <a href="https://krishnagits1.github.io/tiwariji/index.html">होम पेज पर जाएँ</a></p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let currentTemplate = 1;
+let uploadedPhotoDataURL = null;
+
+const templates = {
+  1:'poster-t1', 2:'poster-t2', 3:'poster-t3',
+  4:'poster-t4', 5:'poster-t5', 6:'poster-t6'
+};
+
+function selectTemplate(n, el) {
+  currentTemplate = n;
+  document.querySelectorAll('.tmpl-card').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  updatePreview();
+}
+
+function getVal(id){ return document.getElementById(id)?.value || ''; }
+
+function buildPoster() {
+  const cls = templates[currentTemplate];
+  const name   = getVal('f_name');
+  const addr   = getVal('f_addr');
+  const mobile = getVal('f_mobile');
+  const puja   = getVal('f_puja');
+  const deity  = getVal('f_deity');
+  const desc   = getVal('f_desc');
+  const mantra = getVal('f_mantra').replace(/\n/g,'<br>');
+  const items  = getVal('f_samagri').split('\n').filter(l=>l.trim());
+
+  const photoHTML = uploadedPhotoDataURL
+    ? `<img class="deity-photo" src="${uploadedPhotoDataURL}" alt="deity"/>`
+    : `<div class="deity-placeholder">🙏</div>`;
+
+  const itemsHTML = items.map(i =>
+    `<div class="samagri-item">${i.trim()}</div>`
+  ).join('');
+
+  const year = new Date().getFullYear();
+
+  return `
+  <div class="${cls}">
+    ${ cls==='poster-t1' ? `
+      <div class="mandala-bg"></div>
+      <div class="border-outer"></div><div class="border-inner"></div>
+      <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div><div class="corner corner-br"></div>` : ''}
+    ${ cls==='poster-t2' ? '<div class="stars-bg"></div><div class="frame"></div>' : ''}
+    ${ cls==='poster-t3' ? '<div class="flowers-bg"></div><div class="frame"></div>' : ''}
+    ${ cls==='poster-t4' ? '<div class="border-dbl"></div><div class="border-inner"></div>' : ''}
+    ${ cls==='poster-t5' ? '<div class="bg-glow"></div><div class="frame"></div><div class="frame2"></div>' : ''}
+    ${ cls==='poster-t6' ? '<div class="frame"></div>' : ''}
+
+    <div class="header-bar">
+      <span class="om">ॐ</span>
+    </div>
+
+    <div class="pandit-name">${name}</div>
+    <div class="pandit-addr">📍 ${addr} &nbsp;|&nbsp; 📞 ${mobile}</div>
+
+    ${photoHTML}
+
+    <div class="puja-title">🙏 ${puja} 🙏</div>
+    <div class="divider" style="${cls==='poster-t1'?'':'display:none'}">⸻ ✦ ⸻</div>
+    <div class="deity-name">देवता: ${deity}</div>
+
+    <div class="mantra-block">
+      <p>${mantra}</p>
+    </div>
+
+    <div class="samagri-section">
+      <div class="samagri-title">📜 पूजा सामग्री सूची</div>
+      <div class="samagri-grid">${itemsHTML}</div>
+      ${desc ? `<p style="font-size:0.75rem;margin-top:0.6rem;opacity:0.75;font-style:italic;">${desc}</p>` : ''}
+    </div>
+
+    <div class="footer-bar">
+      <span>🙏 सर्वे भवन्तु सुखिनः</span>
+      <span>${year} © पंडित विक्रम तिवारी जी</span>
+    </div>
+  </div>`;
+}
+
+function updatePreview(){
+  document.getElementById('previewBox').innerHTML = buildPoster();
+}
+
+function handlePhoto(input){
+  const file = input.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    uploadedPhotoDataURL = e.target.result;
+    const img = document.getElementById('uploadedImg');
+    img.src = e.target.result;
+    img.style.display = 'block';
+    updatePreview();
+  };
+  reader.readAsDataURL(file);
+}
+
+async function downloadPDF() {
+  showToast('⏳ PDF तैयार हो रही है...');
+  const el = document.getElementById('previewBox');
+  try {
+    const canvas = await html2canvas(el, {
+      scale: 2, useCORS: true, backgroundColor: null,
+      logging: false, width: 595, windowWidth: 595
+    });
+    const imgData = canvas.toDataURL('image/jpeg', 0.95);
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({ orientation:'portrait', unit:'pt', format:'a4' });
+    pdf.addImage(imgData,'JPEG',0,0,595,842);
+    const fname = (getVal('f_puja') || 'puja').replace(/\s+/g,'_');
+    pdf.save(`${fname}_tiwariji.pdf`);
+    showToast('✅ PDF डाउनलोड हो गई!');
+  } catch(e) {
+    showToast('❌ त्रुटि हुई, पुनः प्रयास करें।');
+  }
+}
+
+function printPoster(){
+  const content = document.getElementById('previewBox').innerHTML;
+  const pw = window.open('','_blank');
+  pw.document.write(`<!DOCTYPE html><html><head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <style>
+      *{margin:0;padding:0;box-sizing:border-box}
+      body{width:595px;min-height:842px;font-family:'Noto Serif Devanagari',serif;}
+      @media print{body{width:595px;}}
+      ${document.querySelector('style').textContent}
+    </style>
+    </head><body>${content}</body></html>`);
+  pw.document.close();
+  setTimeout(()=>{ pw.focus(); pw.print(); },800);
+}
+
+async function sharePoster(){
+  if(navigator.share){
+    try{
+      await navigator.share({title:'पूजा सामग्री — पंडित विक्रम तिवारी जी',text:'पूजा की सामग्री सूची देखें',url:window.location.href});
+    }catch(e){}
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    showToast('🔗 लिंक कॉपी हो गया!');
+  }
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+// Init
+updatePreview();
+</script>
+</body>
+</html>
